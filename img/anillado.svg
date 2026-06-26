@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Anillado simple">
+  <rect width="600" height="450" fill="#f6f5f3"/>
+  <rect x="168" y="62" width="290" height="330" rx="18" fill="#ffffff" stroke="#cdd5dc" stroke-width="8"/>
+  <path d="M228 124h176M228 172h176M228 220h176M228 268h132" stroke="#747b82" stroke-width="14" stroke-linecap="round"/>
+  <path d="M154 96c35 0 35 36 0 36s-35 36 0 36 35 36 0 36-35 36 0 36 35 36 0 36-35 36 0 36 35 36 0 36"
+    fill="none" stroke="#2368a2" stroke-width="18" stroke-linecap="round"/>
+  <rect x="188" y="62" width="28" height="330" fill="#d43d34" opacity=".9"/>
+</svg>
