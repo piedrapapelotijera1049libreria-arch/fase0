@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Piedra, Papel o Tijera Librería: útiles escolares, fotocopias, impresiones, plastificados y anillados en José C. Paz."
+    />
+    <meta name="theme-color" content="#17110d" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self'; font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'none'"
+    />
+    <meta property="og:title" content="Piedra, Papel o Tijera Librería" />
+    <meta
+      property="og:description"
+      content="Catálogo de consulta para útiles, fotocopias, impresiones, plastificados y anillados en José C. Paz."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_AR" />
+    <meta name="twitter:card" content="summary" />
+    <title>Piedra, Papel o Tijera Librería</title>
+    <link rel="icon" href="img/cartel-libreria.jpg" type="image/jpeg" />
+    <link rel="preload" href="img/local-exterior.jpg" as="image" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#catalogo">Saltar al catálogo</a>
+    <noscript>
+      <div class="noscript-warning">
+        Para ver el catálogo y armar la consulta por WhatsApp necesitás activar JavaScript.
+      </div>
+    </noscript>
+
+    <header class="site-header" data-header>
+      <div class="utility-bar">
+        <div class="utility-bar__inner">
+          <a href="https://wa.me/5491152627005" target="_blank" rel="noopener noreferrer">WhatsApp 11-5262-7005</a>
+          <span>Polonia 1049 · José C. Paz</span>
+        </div>
+      </div>
+
+      <div class="commerce-header">
+        <a class="brand" href="#inicio" aria-label="Inicio">
+          <span class="brand-mark">
+            <img src="img/cartel-libreria.jpg" alt="" />
+          </span>
+          <span class="brand-copy">
+            <strong>Piedra, Papel o Tijera</strong>
+            <small>Librería · José C. Paz</small>
+          </span>
+        </a>
+
+        <label class="header-search" for="searchInput">
+          <span class="visually-hidden">Buscar productos</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Buscá productos" />
+          <button class="header-search__clear" id="clearSearchButton" type="button" aria-label="Limpiar búsqueda" hidden>×</button>
+          <span class="header-search__icon" aria-hidden="true"></span>
+        </label>
+
+        <div class="header-actions">
+          <a class="header-help" href="https://wa.me/5491152627005" target="_blank" rel="noopener noreferrer">
+            <small>¿Necesitás ayuda?</small>
+            <strong>Escribinos</strong>
+          </a>
+          <button class="cart-button" id="cartButton" type="button" aria-controls="cartPanel" aria-expanded="false" aria-label="Abrir lista de consulta">
+            <span class="cart-button__label">Consulta</span>
+            <span class="cart-button__count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+
+      <nav class="category-nav" aria-label="Navegación principal">
+        <div class="category-nav__inner">
+          <a class="category-nav__lead" href="#catalogo" data-category-filter="Todos">Catálogo</a>
+          <a href="#catalogo" data-category-filter="Lapiceras">Lapiceras</a>
+          <a href="#catalogo" data-category-filter="Marcadores permanentes">Permanentes</a>
+          <a href="#catalogo" data-category-filter="Marcadores para pizarra">Pizarra</a>
+          <a href="#catalogo" data-category-filter="Papeles">Papeles</a>
+          <a href="#servicios">Fotocopias</a>
+          <a href="#servicios">Impresiones</a>
+          <a href="#servicios">Plastificados</a>
+          <a href="#servicios">Anillados</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="inicio">
+      <section class="storefront-hero" aria-labelledby="hero-title">
+        <div class="storefront-hero__content" data-reveal>
+          <p class="eyebrow">Librería en José C. Paz</p>
+          <h1 id="hero-title">Piedra, Papel o Tijera</h1>
+          <p class="storefront-hero__lead">Útiles, escritura y servicios de librería para resolver todo en un mismo lugar.</p>
+          <p class="storefront-hero__copy">
+            Elegí tus productos, seleccioná el color y envianos la consulta por WhatsApp.
+          </p>
+          <div class="storefront-hero__actions">
+            <a class="button" href="#catalogo">Ver catálogo</a>
+            <a class="button button--secondary" href="https://wa.me/5491152627005" target="_blank" rel="noopener noreferrer">
+              Consultar por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="storefront-hero__services" data-reveal aria-label="Servicios disponibles">
+          <span>Útiles escolares</span>
+          <span>Fotocopias</span>
+          <span>Impresiones</span>
+          <span>Plastificados</span>
+          <span>Anillados</span>
+        </div>
+      </section>
+
+      <section class="catalog" id="catalogo" aria-labelledby="catalogo-title">
+        <div class="catalog__head" data-reveal>
+          <div>
+            <p class="eyebrow">Catálogo</p>
+            <h2 id="catalogo-title">Productos disponibles.</h2>
+          </div>
+          <p>Armá tu lista de consulta y te confirmamos precio y disponibilidad por WhatsApp.</p>
+        </div>
+        <p class="visually-hidden" id="resultCount" aria-live="polite"></p>
+
+        <div class="catalog-results">
+          <div class="product-grid" id="productGrid"></div>
+          <p class="empty-state" id="emptyState" hidden>No encontramos productos con ese filtro.</p>
+        </div>
+      </section>
+
+      <section class="services" id="servicios" aria-labelledby="servicios-title">
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Mostrador</p>
+          <h2 id="servicios-title">Servicios de todos los días.</h2>
+        </div>
+
+        <div class="service-ledger" data-reveal>
+          <div class="service-row">
+            <span>Fotocopias</span>
+            <p>Blanco y negro, apuntes, documentos y material escolar.</p>
+          </div>
+          <div class="service-row">
+            <span>Impresiones</span>
+            <p>Trabajos prácticos, formularios y archivos en color o blanco y negro.</p>
+          </div>
+          <div class="service-row">
+            <span>Plastificados</span>
+            <p>Láminas, credenciales, carteles y material para conservar.</p>
+          </div>
+          <div class="service-row">
+            <span>Anillados</span>
+            <p>Apuntes, informes, cuadernillos y presentaciones prolijas.</p>
+          </div>
+          <div class="service-row">
+            <span>Útiles escolares</span>
+            <p>Cuadernos, hojas, lápices, cartulinas, marcadores y artículos de librería.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contacto" aria-labelledby="contacto-title">
+        <div data-reveal>
+          <p class="eyebrow">Contacto</p>
+          <h2 id="contacto-title">Pasá por el local o escribinos.</h2>
+        </div>
+
+        <div class="contact-grid" data-reveal>
+          <p><strong>WhatsApp / Instagram</strong><a href="https://wa.me/5491152627005" target="_blank" rel="noopener noreferrer">11-5262-7005</a> 
+            <span>@piedrapapelotijeralibreria_</span></p>
+          <p><strong>Dirección</strong><span>Polonia 1049, B1660 José C. Paz, Provincia de Buenos Aires</span></p>
+          <p><strong>Horarios</strong><span>Lunes a viernes 07:00 a 13:30 y de 16:00 a 20:00.</span>
+            <spam>Sabados 09:00 a 13:00 y de 16:00 a 20:00.</spam>
+            <span>Domingos/Feriados 9:00 a 13:00.</span></p>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-hidden="true">
+      <button class="cart-panel__backdrop" type="button" data-close-cart aria-label="Cerrar lista de consulta"></button>
+      <div class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" data-lenis-prevent>
+        <div class="cart-drawer__header">
+          <div>
+            <p class="eyebrow">Consulta</p>
+            <h2 id="cartTitle">Lista de consulta</h2>
+          </div>
+          <button class="icon-button" id="closeCart" type="button" aria-label="Cerrar lista de consulta">×</button>
+        </div>
+
+        <div class="cart-items" id="cartItems"></div>
+
+        <div class="cart-summary">
+          <div class="summary-row">
+            <span>Productos</span>
+            <strong id="cartTotalItems">0</strong>
+          </div>
+          <div class="summary-row">
+            <span>Importe</span>
+            <strong id="cartTotalPrice">A consultar</strong>
+          </div>
+          <p class="summary-note" id="cartPriceNote"></p>
+
+          <div class="cart-actions">
+            <button class="button button--muted" id="clearCartButton" type="button">Vaciar</button>
+            <button class="button" id="sendWhatsAppButton" type="button">Enviar consulta</button>
+          </div>
+          <p class="cart-message" id="cartMessage" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </aside>
+
+    <a
+      class="floating-whatsapp"
+      href="https://wa.me/5491152627005"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Consultar por WhatsApp"
+    >
+      <span aria-hidden="true">W</span>
+      <strong>WhatsApp</strong>
+    </a>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="productos-data.js"></script>
+    <script src="script.js"></script>
+    <script defer src="vendor/lenis.1.3.15.min.js"></script>
+    <script defer src="vendor/gsap.3.15.min.js"></script>
+    <script defer src="vendor/ScrollTrigger.3.15.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1177 @@
+/*
+  Archivo generado automaticamente desde productos.json.
+  No editar manualmente: ejecuta generar-productos-compatibles.ps1.
+*/
+window.PRODUCTOS_CATALOGO =[
+    {
+        "id":  "bic-cristal-fina",
+        "nombre":  "BIC Cristal Fina",
+        "descripcion":  "Lapicera de escritura precisa con punta fina de 0,8 mm.",
+        "categoria":  "Lapiceras",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0001",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-fina-azul.jpg"
+                          },
+                          {
+                              "id":  "prod-0002",
+                              "nombre":  "Negra",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-fina-negra.jpg"
+                          },
+                          {
+                              "id":  "prod-0003",
+                              "nombre":  "Roja",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-fina-roja.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "bic-cristal-dura",
+        "nombre":  "BIC Cristal Dura+",
+        "descripcion":  "Lapicera de cuerpo transparente y punta media de 1,0 mm.",
+        "categoria":  "Lapiceras",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0004",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-dura-azul.jpg"
+                          },
+                          {
+                              "id":  "prod-0005",
+                              "nombre":  "Roja",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-dura-roja.jpg"
+                          },
+                          {
+                              "id":  "prod-0006",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-dura-verde.jpg"
+                          },
+                          {
+                              "id":  "prod-0007",
+                              "nombre":  "Negra",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-cristal-dura-negra.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "bic-dura-opaco",
+        "nombre":  "BIC Dura+ Opaco",
+        "descripcion":  "Lapicera de cuerpo opaco y punta media de 1,0 mm.",
+        "categoria":  "Lapiceras",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0008",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-dura-opaco-azul.jpg"
+                          },
+                          {
+                              "id":  "prod-0009",
+                              "nombre":  "Roja",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-dura-opaco-roja.jpg"
+                          },
+                          {
+                              "id":  "prod-0010",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-dura-opaco-verde.jpg"
+                          },
+                          {
+                              "id":  "prod-0011",
+                              "nombre":  "Negra",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/bic-dura-opaco-negra.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "prod-0012",
+        "nombre":  "BIC Cristal Fashion",
+        "descripcion":  "Colores surtidos, exhibidor de 25 unidades y trazo de 1,2 mm.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/bic-cristal-fashion.jpg"
+    },
+    {
+        "id":  "filgo-stick-026",
+        "nombre":  "Filgo Stick 026",
+        "descripcion":  "Lapicera de punta media de 1,0 mm.",
+        "categoria":  "Lapiceras",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0013",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-stick-026.jpg"
+                          },
+                          {
+                              "id":  "prod-0014",
+                              "nombre":  "Roja",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-stick-026.jpg"
+                          },
+                          {
+                              "id":  "prod-0015",
+                              "nombre":  "Negra",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-stick-026.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "prod-0016",
+        "nombre":  "Filgo FastGrip",
+        "descripcion":  "Lapicera retráctil negra con agarre antideslizante.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/filgo-fastgrip.jpg"
+    },
+    {
+        "id":  "prod-0017",
+        "nombre":  "Filgo Fastrack",
+        "descripcion":  "Lapicera retráctil en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/filgo-fastrack.jpg"
+    },
+    {
+        "id":  "prod-0018",
+        "nombre":  "Filgo One",
+        "descripcion":  "Bolígrafo en varios colores, exhibidor de 36 unidades.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/filgo-one.jpg"
+    },
+    {
+        "id":  "prod-0019",
+        "nombre":  "Filgo Decilo con Stick",
+        "descripcion":  "Lapicera negra de punta media de 1,0 mm. Imagen institucional oficial de la línea.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/filgo-decilo.svg"
+    },
+    {
+        "id":  "faber-trilux-035",
+        "nombre":  "Faber-Castell Trilux 035 F",
+        "descripcion":  "Bolígrafo fino de cuerpo triangular.",
+        "categoria":  "Lapiceras",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0020",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/faber-trilux-035.jpg"
+                          },
+                          {
+                              "id":  "prod-0021",
+                              "nombre":  "Roja",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/faber-trilux-035.jpg"
+                          },
+                          {
+                              "id":  "prod-0022",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/faber-trilux-035.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "prod-0023",
+        "nombre":  "Uni-ball Signo UM-100 (07)",
+        "descripcion":  "Lapicera roller de 0,7 mm. Imagen oficial del modelo en negro; confirmar color disponible.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/uniball-signo-um100.jpg"
+    },
+    {
+        "id":  "filgo-permanent-060",
+        "nombre":  "Filgo Permanent 060",
+        "descripcion":  "Marcador permanente resistente al agua y multisuperficie, con punta biselada de 2 a 4 mm.",
+        "categoria":  "Marcadores permanentes",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0024",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-permanent-060.jpg"
+                          },
+                          {
+                              "id":  "prod-0026",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-permanent-060.jpg"
+                          },
+                          {
+                              "id":  "prod-0027",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-permanent-060.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "prod-0025",
+        "nombre":  "Filgo Permanent Marker 050",
+        "descripcion":  "Marcador permanente azul con punta biselada de 2 a 5 mm.",
+        "precio":  null,
+        "categoria":  "Marcadores permanentes",
+        "imagen":  "img/productos/filgo-permanent-050.jpg"
+    },
+    {
+        "id":  "filgo-whiteboard-068",
+        "nombre":  "Filgo Whiteboard 068",
+        "descripcion":  "Marcador para pizarra, fácil de borrar y de punta redonda.",
+        "categoria":  "Marcadores para pizarra",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0028",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-whiteboard-068.jpg"
+                          },
+                          {
+                              "id":  "prod-0029",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-whiteboard-068.jpg"
+                          },
+                          {
+                              "id":  "prod-0030",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-whiteboard-068.jpg"
+                          },
+                          {
+                              "id":  "prod-0031",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-whiteboard-068.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "trabi-410-plus",
+        "nombre":  "Trabi 410 Plus",
+        "descripcion":  "Marcador permanente recargable de punta biselada de 4 a 6 mm.",
+        "categoria":  "Marcadores permanentes",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0032",
+                              "nombre":  "Rosa",
+                              "color":  "#e95691",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-410-plus.jpg"
+                          },
+                          {
+                              "id":  "prod-0033",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-410-plus.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "trabi-411-plus",
+        "nombre":  "Trabi 411 Plus",
+        "descripcion":  "Marcador permanente recargable de punta redonda de 2 a 4 mm.",
+        "categoria":  "Marcadores permanentes",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0034",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-411-plus.jpg"
+                          },
+                          {
+                              "id":  "prod-0035",
+                              "nombre":  "Verde",
+                              "color":  "#258a47",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-411-plus.jpg"
+                          },
+                          {
+                              "id":  "prod-0036",
+                              "nombre":  "Violeta",
+                              "color":  "#71368a",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-411-plus.jpg"
+                          },
+                          {
+                              "id":  "prod-0037",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-411-plus.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "trabi-450-plus",
+        "nombre":  "Trabi 450 Plus",
+        "descripcion":  "Marcador recargable para pizarra con punta redonda de 2 a 4 mm.",
+        "categoria":  "Marcadores para pizarra",
+        "opcion":  "Color",
+        "variantes":  [
+                          {
+                              "id":  "prod-0038",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-450-plus.jpg"
+                          },
+                          {
+                              "id":  "prod-0039",
+                              "nombre":  "Azul",
+                              "color":  "#2463b5",
+                              "precio":  null,
+                              "imagen":  "img/productos/trabi-450-plus.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "prod-0040",
+        "nombre":  "Markal Paint-Riter",
+        "descripcion":  "Marcador de pintura dorada con cuerpo metálico, SKU oficial 096827.",
+        "precio":  null,
+        "categoria":  "Marcadores permanentes",
+        "imagen":  "img/productos/markal-paint-riter-dorado.jpg"
+    },
+    {
+        "id":  "filgo-pinto-colores",
+        "nombre":  "Filgo Pinto Lápices de Colores",
+        "descripcion":  "Lápices de colores brillantes, sin madera, en estuche escolar.",
+        "categoria":  "Lápices de colores",
+        "opcion":  "Presentación",
+        "variantes":  [
+                          {
+                              "id":  "prod-0041",
+                              "nombre":  "12 colores",
+                              "color":  "#ff665f",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-pinto-colores-12.jpg"
+                          },
+                          {
+                              "id":  "prod-0042",
+                              "nombre":  "24 colores",
+                              "color":  "#f6c84a",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-pinto-colores-24.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "office-trend-highlighter",
+        "nombre":  "Office Trend Highlighter x3",
+        "descripcion":  "Blíster con tres resaltadores en colores flúo surtidos.",
+        "precio":  null,
+        "categoria":  "Resaltadores",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "filgo-marker-036-pink-up",
+        "nombre":  "Filgo Marker 036 Pink Up! x6",
+        "descripcion":  "Set de seis marcadores medianos en tonos rosados y violetas.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/filgo-marker-036-pink-up.jpg"
+    },
+    {
+        "id":  "filgo-pinto-2210",
+        "nombre":  "Filgo Pinto 2210",
+        "descripcion":  "Marcadores escolares lavables de punta fina en colores surtidos.",
+        "categoria":  "Marcadores escolares",
+        "opcion":  "Presentación",
+        "variantes":  [
+                          {
+                              "id":  "prod-0043",
+                              "nombre":  "10 marcadores",
+                              "color":  "#eb5d57",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-pinto-2210-10.jpg"
+                          },
+                          {
+                              "id":  "prod-0044",
+                              "nombre":  "20 marcadores",
+                              "color":  "#f2b93f",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-pinto-2210-20.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "filgo-pinto-mini-12",
+        "nombre":  "Filgo Pinto Mini x12",
+        "descripcion":  "Estuche compacto con doce mini lápices de colores surtidos.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/filgo-pinto-mini-12.jpg"
+    },
+    {
+        "id":  "faber-ecopencils-12",
+        "nombre":  "Faber-Castell EcoLápices de Color x12",
+        "descripcion":  "Estuche escolar con doce EcoLápices de colores surtidos.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/faber-ecopencils-12.jpg"
+    },
+    {
+        "id":  "faber-pack-escolar-28",
+        "nombre":  "Faber-Castell Pack Escolar x28",
+        "descripcion":  "Pack escolar de 28 piezas con lápices, marcadores y accesorios.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/faber-pack-escolar-28.jpg"
+    },
+    {
+        "id":  "stencil-decorativo",
+        "nombre":  "Stencil Decorativo",
+        "descripcion":  "Plantilla reutilizable para pintura y trabajos de decoración.",
+        "precio":  null,
+        "categoria":  "Manualidades",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "cbx-rodillos-espuma",
+        "nombre":  "CBX Rodillos de Espuma",
+        "descripcion":  "Set de rodillos de espuma para pintura y manualidades.",
+        "precio":  null,
+        "categoria":  "Manualidades",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "filgo-pinto-pastel-10",
+        "nombre":  "Filgo Pinto Pastel x10",
+        "descripcion":  "Diez lápices de colores pastel con mina suave.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/filgo-pinto-pastel-10.jpg"
+    },
+    {
+        "id":  "filgo-pinto-acuarelables-12",
+        "nombre":  "Filgo Pinto Acuarelables x12",
+        "descripcion":  "Doce lápices de colores acuarelables para dibujo y pintura.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/filgo-pinto-acuarelables-12.jpg"
+    },
+    {
+        "id":  "giotto-colors-3-12",
+        "nombre":  "Giotto Colors 3.0 x12",
+        "descripcion":  "Doce lápices de colores con mina de 3 mm resistente.",
+        "precio":  null,
+        "categoria":  "Lápices de colores",
+        "imagen":  "img/productos/giotto-colors-3-12.jpg"
+    },
+    {
+        "id":  "skycolor-infinity",
+        "nombre":  "Skycolor Infinity",
+        "descripcion":  "Lápices de colores ecológicos y no tóxicos en tonos surtidos.",
+        "categoria":  "Lápices de colores",
+        "opcion":  "Presentación",
+        "variantes":  [
+                          {
+                              "id":  "prod-0045",
+                              "nombre":  "12 colores",
+                              "color":  "#ee6055",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          },
+                          {
+                              "id":  "prod-0046",
+                              "nombre":  "24 colores",
+                              "color":  "#4f86c6",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          }
+                      ]
+    },
+    {
+        "id":  "filgo-black-white",
+        "nombre":  "Filgo Black \u0026 White Supersoft",
+        "descripcion":  "Lápices supersoft para dibujar y pintar sobre papel claro u oscuro.",
+        "categoria":  "Dibujo artístico",
+        "opcion":  "Paleta",
+        "variantes":  [
+                          {
+                              "id":  "prod-0047",
+                              "nombre":  "Tonos nocturnos x12",
+                              "color":  "#253858",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-black-white-nocturnos-12.jpg"
+                          },
+                          {
+                              "id":  "prod-0048",
+                              "nombre":  "Tonos sunset x15",
+                              "color":  "#df704d",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-black-white-sunset-15.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "filgo-premiere-grafito-6",
+        "nombre":  "Filgo Premiere Grafito x6",
+        "descripcion":  "Set de seis lápices graduados para dibujo y sombreado.",
+        "precio":  null,
+        "categoria":  "Dibujo artístico",
+        "imagen":  "img/productos/filgo-premiere-grafito-6.jpg"
+    },
+    {
+        "id":  "filgo-pinto-grafito-12",
+        "nombre":  "Filgo Pinto Grafito HB x12",
+        "descripcion":  "Doce lápices de grafito HB resistentes y fáciles de borrar.",
+        "precio":  null,
+        "categoria":  "Dibujo artístico",
+        "imagen":  "img/productos/filgo-pinto-grafito-12.jpg"
+    },
+    {
+        "id":  "simball-innovation-12",
+        "nombre":  "Simball Innovation x12",
+        "descripcion":  "Estuche con doce lápices negros HB para escritura y dibujo.",
+        "precio":  null,
+        "categoria":  "Dibujo artístico",
+        "imagen":  "img/productos/simball-innovation-12.jpg"
+    },
+    {
+        "id":  "energizer-max-aaa",
+        "nombre":  "Energizer Max AAA",
+        "descripcion":  "Pilas alcalinas AAA para uso cotidiano.",
+        "precio":  null,
+        "categoria":  "Pilas",
+        "imagen":  "img/productos/energizer-max-aaa.jpg"
+    },
+    {
+        "id":  "candela-pilas",
+        "nombre":  "Candela Pilas",
+        "descripcion":  "Pilas de uso general disponibles en dos tamaños.",
+        "categoria":  "Pilas",
+        "opcion":  "Tamaño",
+        "variantes":  [
+                          {
+                              "id":  "prod-0049",
+                              "nombre":  "AA",
+                              "color":  "#3f86b5",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          },
+                          {
+                              "id":  "prod-0050",
+                              "nombre":  "AAA",
+                              "color":  "#255a7b",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          }
+                      ]
+    },
+    {
+        "id":  "filgo-alloy-tonos-piel-12",
+        "nombre":  "Filgo Alloy Tonos Piel x12",
+        "descripcion":  "Marcadores artísticos de doble punta en una selección de tonos piel.",
+        "precio":  null,
+        "categoria":  "Dibujo artístico",
+        "imagen":  "img/productos/filgo-alloy-tonos-piel-12.jpg"
+    },
+    {
+        "id":  "giotto-turbo-color-10",
+        "nombre":  "Giotto Turbo Color x10",
+        "descripcion":  "Diez marcadores lavables de colores intensos.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/giotto-turbo-color-10.jpg"
+    },
+    {
+        "id":  "ezco-marcadores-al-agua",
+        "nombre":  "Ezco Marcadores al Agua",
+        "descripcion":  "Estuche de marcadores al agua en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/ezco-marcadores-al-agua.jpg"
+    },
+    {
+        "id":  "olami-mp230",
+        "nombre":  "Olamí MP230 x4",
+        "descripcion":  "Set de cuatro marcadores recargables para pizarra.",
+        "precio":  null,
+        "categoria":  "Marcadores para pizarra",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "filgo-fit-pastel-4",
+        "nombre":  "Filgo FIT Pastel x4",
+        "descripcion":  "Set de cuatro marcadores en tonos pastel.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "filgo-roliart-6",
+        "nombre":  "Filgo Roliart x6",
+        "descripcion":  "Seis microfibras de doble punta con sello en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/filgo-roliart-6.jpg"
+    },
+    {
+        "id":  "sylvapen-paper-mate",
+        "nombre":  "Paper Mate Sylvapen",
+        "descripcion":  "Marcadores escolares lavables en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "maped-colorpeps-ocean",
+        "nombre":  "Maped Color\u0027Peps Ocean",
+        "descripcion":  "Marcadores lavables de colores surtidos con estuche temático Ocean.",
+        "categoria":  "Marcadores escolares",
+        "opcion":  "Presentación",
+        "variantes":  [
+                          {
+                              "id":  "prod-0051",
+                              "nombre":  "6 marcadores",
+                              "color":  "#f5c84b",
+                              "precio":  null,
+                              "imagen":  "img/productos/maped-ocean-6.jpg"
+                          },
+                          {
+                              "id":  "prod-0052",
+                              "nombre":  "10 marcadores",
+                              "color":  "#e95d5d",
+                              "precio":  null,
+                              "imagen":  "img/productos/maped-ocean-10.jpg"
+                          },
+                          {
+                              "id":  "prod-0053",
+                              "nombre":  "24 marcadores",
+                              "color":  "#56a5d8",
+                              "precio":  null,
+                              "imagen":  "img/productos/maped-ocean-24.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "filgo-pinto-jumbo-10",
+        "nombre":  "Filgo Pinto Jumbo x10",
+        "descripcion":  "Diez marcadores maxi lavables de punta cónica.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/filgo-pinto-jumbo-10.jpg"
+    },
+    {
+        "id":  "filgo-lighter-fine",
+        "nombre":  "Filgo Lighter Fine x4",
+        "descripcion":  "Resaltadores finos con punta de 1 mm en sets de cuatro unidades.",
+        "categoria":  "Resaltadores",
+        "opcion":  "Tonos",
+        "variantes":  [
+                          {
+                              "id":  "prod-0054",
+                              "nombre":  "Flúo",
+                              "color":  "#b8d933",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-lighter-fine-fluo-4.jpg"
+                          },
+                          {
+                              "id":  "prod-0055",
+                              "nombre":  "Pastel",
+                              "color":  "#e6a7bd",
+                              "precio":  null,
+                              "imagen":  "img/productos/filgo-lighter-fine-pastel-4.jpg"
+                          }
+                      ]
+    },
+    {
+        "id":  "trabi-megapinturon-10",
+        "nombre":  "Trabi Megapinturón x10",
+        "descripcion":  "Diez marcadores de gran formato para dibujo y pintura.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/trabi-megapinturon-10.jpg"
+    },
+    {
+        "id":  "filgo-pinto-2220-20",
+        "nombre":  "Filgo Pinto 2220 x20",
+        "descripcion":  "Veinte marcadores escolares de punta media en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/filgo-pinto-2220-20.jpg"
+    },
+    {
+        "id":  "filgo-pinto-2220-fluo-6",
+        "nombre":  "Filgo Pinto 2220 Flúo x6",
+        "descripcion":  "Seis marcadores escolares Pinto 2220 en colores flúo.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "talbot-correctora-clear",
+        "nombre":  "Talbot Cinta Correctora Clear",
+        "descripcion":  "Cinta correctora de aplicación en seco con cuerpo transparente.",
+        "precio":  null,
+        "categoria":  "Correctores",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "filgo-correct-line-512",
+        "nombre":  "Filgo Correct Line 512",
+        "descripcion":  "Cinta correctora de aplicación rápida y precisa.",
+        "precio":  null,
+        "categoria":  "Correctores",
+        "imagen":  "img/productos/filgo-correct-line-512.jpg"
+    },
+    {
+        "id":  "hzc-correction-tape",
+        "nombre":  "HZC Correction Tape",
+        "descripcion":  "Cinta correctora compacta de aplicación en seco.",
+        "precio":  null,
+        "categoria":  "Correctores",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "olami-repuesto-cutter-18mm",
+        "nombre":  "Olamí Repuesto Cutter 18 mm x10",
+        "descripcion":  "Tubo con diez hojas de repuesto para cutter de 18 mm.",
+        "precio":  null,
+        "categoria":  "Accesorios escolares",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "cbx-tachuelas",
+        "nombre":  "CBX Tachuelas",
+        "descripcion":  "Tachuelas para cartelería, armado y manualidades.",
+        "categoria":  "Manualidades",
+        "opcion":  "Terminación",
+        "variantes":  [
+                          {
+                              "id":  "prod-0056",
+                              "nombre":  "Doradas",
+                              "color":  "#c9a227",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          },
+                          {
+                              "id":  "prod-0057",
+                              "nombre":  "Plateadas",
+                              "color":  "#a9adb4",
+                              "precio":  null,
+                              "imagen":  "img/producto-sin-imagen.svg"
+                          }
+                      ]
+    },
+    {
+        "id":  "borradores-infantiles-3d",
+        "nombre":  "Borradores Infantiles 3D x30",
+        "descripcion":  "Borradores con diseños infantiles surtidos.",
+        "precio":  null,
+        "categoria":  "Accesorios escolares",
+        "imagen":  "img/producto-sin-imagen.svg"
+    },
+    {
+        "id":  "cartulina",
+        "nombre":  "Cartulina",
+        "descripcion":  "Cartulina de color para trabajos escolares, carteleria y manualidades.",
+        "categoria":  "Papeles",
+        "opcion":  "Color",
+        "imagen":  "img/productos/cartulina.jpeg",
+        "variantes":  [
+                          {
+                              "id":  "prod-0058",
+                              "nombre":  "Marron",
+                              "color":  "#6b432c",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0059",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0060",
+                              "nombre":  "Rosa",
+                              "color":  "#f28ab2",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0061",
+                              "nombre":  "Verde claro",
+                              "color":  "#84d65a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0062",
+                              "nombre":  "Verde oscuro",
+                              "color":  "#1f6b3a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0063",
+                              "nombre":  "Azul celeste",
+                              "color":  "#69c9f0",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0064",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0065",
+                              "nombre":  "Blanco",
+                              "color":  "#f7f3e9",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0066",
+                              "nombre":  "Naranja",
+                              "color":  "#f28c28",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0067",
+                              "nombre":  "Violeta",
+                              "color":  "#7b4bc4",
+                              "precio":  null
+                          }
+                      ]
+    },
+    {
+        "id":  "goma-eva",
+        "nombre":  "Goma Eva",
+        "descripcion":  "Plancha de goma eva comun para manualidades, maquetas y trabajos escolares.",
+        "categoria":  "Papeles",
+        "opcion":  "Color",
+        "imagen":  "img/productos/goma-eva.jfif",
+        "variantes":  [
+                          {
+                              "id":  "prod-0068",
+                              "nombre":  "Marron",
+                              "color":  "#6b432c",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0069",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0070",
+                              "nombre":  "Rosa",
+                              "color":  "#f28ab2",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0071",
+                              "nombre":  "Verde claro",
+                              "color":  "#84d65a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0072",
+                              "nombre":  "Verde oscuro",
+                              "color":  "#1f6b3a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0073",
+                              "nombre":  "Azul celeste",
+                              "color":  "#69c9f0",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0074",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0075",
+                              "nombre":  "Blanco",
+                              "color":  "#f7f3e9",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0076",
+                              "nombre":  "Naranja",
+                              "color":  "#f28c28",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0077",
+                              "nombre":  "Violeta",
+                              "color":  "#7b4bc4",
+                              "precio":  null
+                          }
+                      ]
+    },
+    {
+        "id":  "goma-eva-glitter",
+        "nombre":  "Goma Eva Glitter",
+        "descripcion":  "Plancha de goma eva con glitter para detalles decorativos y manualidades.",
+        "categoria":  "Papeles",
+        "opcion":  "Color",
+        "imagen":  "img/productos/goma-eva-glitter.jfif",
+        "variantes":  [
+                          {
+                              "id":  "prod-0078",
+                              "nombre":  "Marron",
+                              "color":  "#6b432c",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0079",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0080",
+                              "nombre":  "Rosa",
+                              "color":  "#f28ab2",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0081",
+                              "nombre":  "Verde claro",
+                              "color":  "#84d65a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0082",
+                              "nombre":  "Verde oscuro",
+                              "color":  "#1f6b3a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0083",
+                              "nombre":  "Azul celeste",
+                              "color":  "#69c9f0",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0084",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0085",
+                              "nombre":  "Blanco",
+                              "color":  "#f7f3e9",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0086",
+                              "nombre":  "Naranja",
+                              "color":  "#f28c28",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0087",
+                              "nombre":  "Violeta",
+                              "color":  "#7b4bc4",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0088",
+                              "nombre":  "Dorado",
+                              "color":  "#d4af37",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0089",
+                              "nombre":  "Plateado",
+                              "color":  "#c7c9cc",
+                              "precio":  null
+                          }
+                      ]
+    },
+    {
+        "id":  "afiche-comun",
+        "nombre":  "Afiche comun",
+        "descripcion":  "Papel afiche comun para carteles, trabajos escolares y presentaciones.",
+        "categoria":  "Papeles",
+        "opcion":  "Color",
+        "imagen":  "img/productos/afiche.jpg",
+        "variantes":  [
+                          {
+                              "id":  "prod-0090",
+                              "nombre":  "Marron",
+                              "color":  "#6b432c",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0091",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0092",
+                              "nombre":  "Rosa",
+                              "color":  "#f28ab2",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0093",
+                              "nombre":  "Verde claro",
+                              "color":  "#84d65a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0094",
+                              "nombre":  "Verde oscuro",
+                              "color":  "#1f6b3a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0095",
+                              "nombre":  "Azul celeste",
+                              "color":  "#69c9f0",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0096",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0097",
+                              "nombre":  "Blanco",
+                              "color":  "#f7f3e9",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0098",
+                              "nombre":  "Naranja",
+                              "color":  "#f28c28",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0099",
+                              "nombre":  "Violeta",
+                              "color":  "#7b4bc4",
+                              "precio":  null
+                          }
+                      ]
+    },
+    {
+        "id":  "papel-barrilete",
+        "nombre":  "Papel barrilete",
+        "descripcion":  "Papel barrilete de color para manualidades, decoracion y trabajos escolares.",
+        "categoria":  "Papeles",
+        "opcion":  "Color",
+        "imagen":  "img/producto-sin-imagen.svg",
+        "variantes":  [
+                          {
+                              "id":  "prod-0100",
+                              "nombre":  "Marron",
+                              "color":  "#6b432c",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0101",
+                              "nombre":  "Rojo",
+                              "color":  "#d93636",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0102",
+                              "nombre":  "Rosa",
+                              "color":  "#f28ab2",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0103",
+                              "nombre":  "Verde claro",
+                              "color":  "#84d65a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0104",
+                              "nombre":  "Verde oscuro",
+                              "color":  "#1f6b3a",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0105",
+                              "nombre":  "Azul celeste",
+                              "color":  "#69c9f0",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0106",
+                              "nombre":  "Negro",
+                              "color":  "#202124",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0107",
+                              "nombre":  "Blanco",
+                              "color":  "#f7f3e9",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0108",
+                              "nombre":  "Naranja",
+                              "color":  "#f28c28",
+                              "precio":  null
+                          },
+                          {
+                              "id":  "prod-0109",
+                              "nombre":  "Violeta",
+                              "color":  "#7b4bc4",
+                              "precio":  null
+                          }
+                      ]
+    }
+];
