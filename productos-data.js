@@ -1173,5 +1173,122 @@ window.PRODUCTOS_CATALOGO =[
                               "precio":  null
                           }
                       ]
+    },
+    {
+        "id":  "filgo-real-grip-07-pastel",
+        "nombre":  "Filgo Real Grip .7 Pastel",
+        "descripcion":  "Portaminas automatico pastel con grip y trazo de 0,7 mm.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/filgo-real-grip-07-pastel.jpg"
+    },
+    {
+        "id":  "util-uno-stylus-05",
+        "nombre":  "Util Uno Stylus 0.5",
+        "descripcion":  "Portaminas con grip de 0,5 mm en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/util-uno-stylus-05.jpg"
+    },
+    {
+        "id":  "util-uno-pushka-05",
+        "nombre":  "Util Uno Pushka 0.5",
+        "descripcion":  "Portaminas con grip de 0,5 mm en colores surtidos.",
+        "precio":  null,
+        "categoria":  "Lapiceras",
+        "imagen":  "img/productos/util-uno-pushka-05.jpg"
+    },
+    {
+        "id":  "filgo-permanent-040",
+        "nombre":  "Filgo Permanent 040 Strong",
+        "descripcion":  "Marcador permanente de punta conica de 1,0 mm.",
+        "precio":  null,
+        "categoria":  "Marcadores permanentes",
+        "imagen":  "img/productos/filgo-permanent-040.jpg"
+    },
+    {
+        "id":  "filgo-liner-038",
+        "nombre":  "Filgo Liner 038",
+        "descripcion":  "Microfibra extra fina de 0,4 mm para escritura y dibujo.",
+        "precio":  null,
+        "categoria":  "Marcadores permanentes",
+        "imagen":  "img/productos/filgo-liner-038.jpg"
+    },
+    {
+        "id":  "olami-mpe480",
+        "nombre":  "Olami MPE480 Doble Punta",
+        "descripcion":  "Marcador permanente negro de doble punta.",
+        "precio":  null,
+        "categoria":  "Marcadores permanentes",
+        "imagen":  "img/productos/olami-mpe480.webp"
+    },
+    {
+        "id":  "olami-mdp124",
+        "nombre":  "Olami MDP124 Marcadores x24",
+        "descripcion":  "Marcadores doble punta para diseno, 24 colores.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/olami-mdp124.webp"
+    },
+    {
+        "id":  "filgo-tnt-marker-studio-24",
+        "nombre":  "Filgo TNT Marker Studio x24",
+        "descripcion":  "Marcadores de pintura al agua en estuche surtido.",
+        "precio":  null,
+        "categoria":  "Marcadores escolares",
+        "imagen":  "img/productos/filgo-tnt-marker-studio-24.jpg"
+    },
+    {
+        "id":  "filgo-correct-012",
+        "nombre":  "Filgo Correct 012",
+        "descripcion":  "Corrector liquido ultra correctiva de punta fina.",
+        "precio":  null,
+        "categoria":  "Correctores",
+        "imagen":  "img/productos/filgo-correct-012.jpg"
+    },
+    {
+        "id":  "la-gotita",
+        "nombre":  "La Gotita",
+        "descripcion":  "Adhesivo instantaneo para reparaciones y trabajos chicos.",
+        "categoria":  "Manualidades",
+        "opcion":  "Presentacion",
+        "variantes":  [
+                          {
+                              "id":  "prod-0110",
+                              "nombre":  "2 ml",
+                              "precio":  null,
+                              "imagen":  "img/productos/la-gotita-2ml.png"
+                          },
+                          {
+                              "id":  "prod-0111",
+                              "nombre":  "Gel 3 g",
+                              "precio":  null,
+                              "imagen":  "img/productos/la-gotita-gel-3g.png"
+                          }
+                      ]
+    },
+    {
+        "id":  "unipox-25ml",
+        "nombre":  "Unipox 25 ml",
+        "descripcion":  "Pegamento universal para manualidades y uso escolar.",
+        "precio":  null,
+        "categoria":  "Manualidades",
+        "imagen":  "img/productos/unipox-25ml.png"
+    },
+    {
+        "id":  "eccole-9g",
+        "nombre":  "Eccole 9 g",
+        "descripcion":  "Adhesivo para zapatillas en presentacion de 9 g.",
+        "precio":  null,
+        "categoria":  "Manualidades",
+        "imagen":  "img/productos/eccole-9g.png"
+    },
+    {
+        "id":  "poxiran-23g",
+        "nombre":  "Poxi-ran 23 g",
+        "descripcion":  "Adhesivo de contacto para cuero, goma, tela, carton y madera.",
+        "precio":  null,
+        "categoria":  "Manualidades",
+        "imagen":  "img/productos/poxiran-23g.jpg"
     }
 ];

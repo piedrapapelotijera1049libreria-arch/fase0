@@ -65,3 +65,23 @@ También se usaron estas fuentes oficiales:
 - [Maped Ocean x24](https://ar.maped.com/productos/marcadores-ocean-estuche-x-24/)
 
 Los productos sin una ficha oficial pública usan `img/producto-sin-imagen.svg`. No se conserva ningún recorte de `IMG_0309.jpeg` en el catálogo. Quedan pendientes Office Trend, Stencil decorativo, CBX, Skycolor Infinity, Candela, Olamí, Filgo FIT Pastel, Paper Mate Sylvapen, Pinto 2220 Flúo x6, Talbot, HZC y los borradores 3D.
+
+## Tanda IMG_0328 a IMG_0334
+
+Se agregaron solo productos con imagen publicada por la marca o por su tienda oficial:
+
+- [Filgo Real Grip .7 Pastel](https://filgo.com.ar/productos/portaminas-automatico-3/)
+- [Filgo Permanent 040 Strong](https://filgo.com.ar/productos/marcador-permanente-permanent-040-strong-7/)
+- [Filgo Liner 038](https://filgo.com.ar/productos/microfibras-0-4mm-liner-038-2/)
+- [Filgo TNT Marker Studio](https://filgo.com.ar/productos/marcador-pintura-al-agua-tnt-marker-2/)
+- [Filgo Correct 012](https://filgo.com.ar/productos/correct-012/)
+- [Olami MDP124 marcadores doble punta](https://www.olami.com.ar/productos/marcadores-x24-unidades-de-doble-punta-para-diseno-cj-x6-estuches-mdp-124/)
+- [Olami MPE480 marcador permanente doble punta](https://www.olami.com.ar/productos/marcadores-permanentes-doble-punta-color-negro-cj-x12-unidades-mpe480-n/)
+- [Util Uno Stylus 0.5](https://utiluno.com.ar/lapiz-mecanico-05-mm-con-grip-x-24-und/)
+- [Util Uno Pushka 0.5](https://utiluno.com.ar/lapiz-mecanico-05-mm-con-grip-x-24-und-2/)
+- [Akapol La Gotita](https://akapol.com/marcas/la-gotita/)
+- [Akapol Unipox](https://akapol.com/marcas/unipox/)
+- [Akapol Eccole](https://akapol.com/marcas/eccole/)
+- [Akapol Poxi-ran](https://akapol.com/marcas/poxi-ran/)
+
+No se agregaron productos Luma ni Trabi nuevos en esta tanda porque no se pudo validar una imagen individual desde ficha oficial HTML. El catalogo PDF de Trabi existe como fuente oficial, pero queda pendiente para recorte si se habilita un flujo local confiable de extraccion de paginas.
