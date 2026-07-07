@@ -14,7 +14,6 @@ const CONFIG = {
 
 const PRODUCTS_URL = "productos.json";
 const FALLBACK_IMAGE = "img/producto-sin-imagen.svg";
-const CAROUSEL_INTERVAL_MS = 10000;
 let productos = [];
 let catalogReady = false;
 let catalogItemIndex = new Map();
@@ -61,6 +60,9 @@ const elements = {
   sendWhatsAppButton: document.querySelector("#sendWhatsAppButton"),
   cartMessage: document.querySelector("#cartMessage"),
   toast: document.querySelector("#toast"),
+  footerYear: document.querySelector("#footerYear"),
+  categoryNav: document.querySelector(".category-nav"),
+  categoryNavInner: document.querySelector(".category-nav__inner"),
   categoryFilterLinks: Array.from(document.querySelectorAll("[data-category-filter]")),
   sectionNavLinks: Array.from(document.querySelectorAll(".category-nav a[href^='#']:not([data-category-filter])")),
 };
@@ -84,7 +86,9 @@ let carouselTimers = [];
 init();
 
 async function init() {
+  setFooterYear();
   bindEvents();
+  setupCategoryNavOverflow();
   setupHeaderBehavior();
   setupRevealAnimations();
   scheduleAnimationEnhancements();
@@ -122,6 +126,26 @@ function scheduleAnimationEnhancements() {
   } else {
     window.addEventListener("load", startAnimations, { once: true });
   }
+}
+
+function setFooterYear() {
+  if (!elements.footerYear) return;
+  elements.footerYear.textContent = String(new Date().getFullYear());
+}
+
+function setupCategoryNavOverflow() {
+  const nav = elements.categoryNav;
+  const scroller = elements.categoryNavInner;
+  if (!nav || !scroller) return;
+
+  const updateScrollState = () => {
+    const atEnd = scroller.scrollLeft + scroller.clientWidth >= scroller.scrollWidth - 2;
+    nav.classList.toggle("is-scroll-end", atEnd);
+  };
+
+  updateScrollState();
+  scroller.addEventListener("scroll", updateScrollState, { passive: true });
+  window.addEventListener("resize", updateScrollState);
 }
 
 async function loadProducts() {
@@ -485,7 +509,7 @@ function createCategorySection(category, categoryProducts, categoryIndex) {
   const eyebrow = document.createElement("span");
   eyebrow.textContent = "Categoría";
 
-  const title = document.createElement("h3");
+  const title = document.createElement("h4");
   title.id = sectionId;
   title.textContent = category;
 
@@ -537,48 +561,11 @@ function createCarouselButton(direction, symbol) {
 }
 
 function setupCategoryCarousels() {
-  const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const scrollableTracks = [];
-
   elements.productGrid.querySelectorAll(".product-carousel__track").forEach((track) => {
     const isScrollable = isTrackScrollable(track);
     const controls = track.closest(".product-category")?.querySelector(".product-category__controls");
     if (controls) controls.hidden = !isScrollable;
-    if (!isScrollable || prefersReducedMotion) return;
-
-    const setPaused = (isPaused) => {
-      track.dataset.paused = String(isPaused);
-    };
-
-    let resumeTimer = null;
-    const pauseTemporarily = () => {
-      setPaused(true);
-      window.clearTimeout(resumeTimer);
-      resumeTimer = window.setTimeout(() => setPaused(false), CAROUSEL_INTERVAL_MS);
-    };
-
-    track.addEventListener("pointerenter", () => setPaused(true));
-    track.addEventListener("pointerleave", () => setPaused(false));
-    track.addEventListener("focusin", () => setPaused(true));
-    track.addEventListener("focusout", () => setPaused(false));
-    track.addEventListener("pointerdown", pauseTemporarily);
-    track.addEventListener("wheel", pauseTemporarily, { passive: true });
-    scrollableTracks.push(track);
   });
-
-  if (scrollableTracks.length > 0) {
-    const timer = window.setInterval(() => {
-      if (document.hidden) return;
-      scrollableTracks.forEach((track) => {
-        if (track.dataset.paused === "true") return;
-        const rect = track.getBoundingClientRect();
-        if (rect.bottom < 0 || rect.top > window.innerHeight) return;
-        scrollCategoryTrack(track, 1);
-      });
-    }, CAROUSEL_INTERVAL_MS);
-
-    carouselTimers.push(timer);
-  }
 }
 
 function stopCategoryCarousels() {
@@ -667,7 +654,7 @@ function createProductCard(product, index) {
   price.className = "product-card__price";
   price.textContent = formatPrice(selectedVariant.precio);
 
-  const title = document.createElement("h3");
+  const title = document.createElement("h4");
   title.textContent = product.nombre;
 
   const description = document.createElement("p");
@@ -912,6 +899,7 @@ function animateProductCards() {
 
 function bindProductCardMotion(card) {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  if (!window.matchMedia("(pointer: fine)").matches) return;
 
   let motionFrame = null;
   let pointerX = 0;

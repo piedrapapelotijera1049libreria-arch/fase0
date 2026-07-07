@@ -583,7 +583,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Pilas alcalinas AAA para uso cotidiano.",
         "precio":  null,
         "categoria":  "Pilas",
-        "imagen":  "img/productos/energizer-max-aaa.jpg"
+        "imagen":  "img/productos/energizer-max-aaa.webp"
     },
     {
         "id":  "candela-pilas",
@@ -690,7 +690,7 @@ window.PRODUCTOS_CATALOGO =[
                               "nombre":  "24 marcadores",
                               "color":  "#56a5d8",
                               "precio":  null,
-                              "imagen":  "img/productos/maped-ocean-24.jpg"
+                              "imagen":  "img/productos/maped-ocean-24.webp"
                           }
                       ]
     },
@@ -888,7 +888,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Plancha de goma eva comun para manualidades, maquetas y trabajos escolares.",
         "categoria":  "Papeles",
         "opcion":  "Color",
-        "imagen":  "img/productos/goma-eva.jfif",
+        "imagen":  "img/productos/goma-eva.jpg",
         "variantes":  [
                           {
                               "id":  "prod-0068",
@@ -958,7 +958,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Plancha de goma eva con glitter para detalles decorativos y manualidades.",
         "categoria":  "Papeles",
         "opcion":  "Color",
-        "imagen":  "img/productos/goma-eva-glitter.jfif",
+        "imagen":  "img/productos/goma-eva-glitter.jpg",
         "variantes":  [
                           {
                               "id":  "prod-0078",
@@ -1204,7 +1204,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Marcador permanente de punta conica de 1,0 mm.",
         "precio":  null,
         "categoria":  "Marcadores permanentes",
-        "imagen":  "img/productos/filgo-permanent-040.jpg"
+        "imagen":  "img/productos/filgo-permanent-040.webp"
     },
     {
         "id":  "filgo-liner-038",
@@ -1212,7 +1212,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Microfibra extra fina de 0,4 mm para escritura y dibujo.",
         "precio":  null,
         "categoria":  "Marcadores permanentes",
-        "imagen":  "img/productos/filgo-liner-038.jpg"
+        "imagen":  "img/productos/filgo-liner-038.webp"
     },
     {
         "id":  "olami-mpe480",
@@ -1236,7 +1236,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Marcadores de pintura al agua en estuche surtido.",
         "precio":  null,
         "categoria":  "Marcadores escolares",
-        "imagen":  "img/productos/filgo-tnt-marker-studio-24.jpg"
+        "imagen":  "img/productos/filgo-tnt-marker-studio-24.webp"
     },
     {
         "id":  "filgo-correct-012",
@@ -1257,13 +1257,13 @@ window.PRODUCTOS_CATALOGO =[
                               "id":  "prod-0110",
                               "nombre":  "2 ml",
                               "precio":  null,
-                              "imagen":  "img/productos/la-gotita-2ml.png"
+                              "imagen":  "img/productos/la-gotita-2ml.webp"
                           },
                           {
                               "id":  "prod-0111",
                               "nombre":  "Gel 3 g",
                               "precio":  null,
-                              "imagen":  "img/productos/la-gotita-gel-3g.png"
+                              "imagen":  "img/productos/la-gotita-gel-3g.webp"
                           }
                       ]
     },
@@ -1273,7 +1273,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Pegamento universal para manualidades y uso escolar.",
         "precio":  null,
         "categoria":  "Manualidades",
-        "imagen":  "img/productos/unipox-25ml.png"
+        "imagen":  "img/productos/unipox-25ml.webp"
     },
     {
         "id":  "eccole-9g",
@@ -1281,7 +1281,7 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Adhesivo para zapatillas en presentacion de 9 g.",
         "precio":  null,
         "categoria":  "Manualidades",
-        "imagen":  "img/productos/eccole-9g.png"
+        "imagen":  "img/productos/eccole-9g.webp"
     },
     {
         "id":  "poxiran-23g",
@@ -1289,6 +1289,6 @@ window.PRODUCTOS_CATALOGO =[
         "descripcion":  "Adhesivo de contacto para cuero, goma, tela, carton y madera.",
         "precio":  null,
         "categoria":  "Manualidades",
-        "imagen":  "img/productos/poxiran-23g.jpg"
+        "imagen":  "img/productos/poxiran-23g.webp"
     }
 ];
