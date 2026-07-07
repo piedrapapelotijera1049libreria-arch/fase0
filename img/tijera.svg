@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Tijera escolar">
+  <rect width="600" height="450" fill="#f6f5f3"/>
+  <path d="M0 320h600v130H0z" fill="#e9eef2"/>
+  <circle cx="197" cy="280" r="58" fill="none" stroke="#2368a2" stroke-width="30"/>
+  <circle cx="320" cy="287" r="58" fill="none" stroke="#d43d34" stroke-width="30"/>
+  <circle cx="258" cy="255" r="17" fill="#6b4a33"/>
+  <path d="M270 242 485 106c22-14 46 13 29 33L306 269z" fill="#c9d1d8"/>
+  <path d="M244 244 102 105c-20-19 5-50 28-36l157 168z" fill="#d8dee4"/>
+  <path d="M270 242 485 106" stroke="#747b82" stroke-width="9" stroke-linecap="round"/>
+</svg>

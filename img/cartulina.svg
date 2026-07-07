@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-label="Cartulinas de colores">
+  <rect width="600" height="450" fill="#f6f5f3"/>
+  <rect x="144" y="84" width="255" height="292" rx="16" fill="#2368a2" transform="rotate(-8 271.5 230)"/>
+  <rect x="201" y="65" width="255" height="292" rx="16" fill="#d43d34" transform="rotate(7 328.5 211)"/>
+  <rect x="172" y="112" width="255" height="292" rx="16" fill="#f4c431"/>
+  <path d="M214 172h170M214 224h150M214 276h126" stroke="#6b4a33" stroke-width="16" stroke-linecap="round" opacity=".55"/>
+</svg>
