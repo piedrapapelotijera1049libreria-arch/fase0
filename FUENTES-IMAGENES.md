@@ -85,3 +85,28 @@ Se agregaron solo productos con imagen publicada por la marca o por su tienda of
 - [Akapol Poxi-ran](https://akapol.com/marcas/poxi-ran/)
 
 No se agregaron productos Luma ni Trabi nuevos en esta tanda porque no se pudo validar una imagen individual desde ficha oficial HTML. El catalogo PDF de Trabi existe como fuente oficial, pero queda pendiente para recorte si se habilita un flujo local confiable de extraccion de paginas.
+
+## Tanda WhatsApp 2026-07-16
+
+Las fotografías del ZIP se usaron únicamente como inventario. Las imágenes visibles se descargaron o recortaron de estas fuentes oficiales:
+
+- [Filgo Silicona Líquida 100 ml](https://filgo.com.ar/productos/silicona-liquida-100ml/)
+- [Filgo Silicona Líquida 250 ml](https://filgo.com.ar/productos/silicona-liquida-250ml/)
+- [Filgo Wip 4010](https://filgo.com.ar/productos/goma-de-borrar-lapiz-con-guia-wip-4010/)
+- [Filgo Pinto 2210](https://filgo.com.ar/productos/marcador-escolar-pinto-2210/)
+- [Filgo Pinto 2210 x50](https://filgo.com.ar/productos/marcador-escolar-pinto-2210-5/)
+- [Filgo Pinto Mini](https://filgo.com.ar/productos/lapiz-de-color-mini-pinto/)
+- [Filgo Pinto Bicolor](https://filgo.com.ar/productos/lapiz-bicolor-pinto/)
+- [Filgo Crayones Pinto](https://filgo.com.ar/productos/crayon-de-cera-pinto/)
+- [Filgo Pinto Circus](https://filgo.com.ar/productos/sacapuntas-con-deposito-pinto-circus/)
+- [Filgo Tijera Pinto](https://filgo.com.ar/productos/tijera-pinto/)
+- [Filgo Tizas blancas Pinto](https://filgo.com.ar/productos/tiza-escolar-blanca-pinto/)
+- [Filgo Text Marker](https://filgo.com.ar/productos/resaltador-chato-text-marker/)
+- [Maped Black'Peps HB x72](https://br.maped.com/product/lapis-grafite-hb-blackpeps-navy-com-borracha-pote-x-72-maped/)
+- [Simball Dolche x10](https://simball.com.ar/catalogo/boligrafos-dolche-x-10/)
+- [Akapol Voligoma](https://www.akapol.com.ar/marcas/voligoma/)
+- [Energizer Max AA](https://energizer.com/product/power/energizer-max-aa-batteries-6-pack-double-a-alkaline-batteries/)
+- [Tienda oficial Olamí](https://www.olami.com.ar/office-school/)
+- [Catálogo oficial Trabi 2026](https://trabi.com.ar/catalogo_trabi_2026.pdf), páginas 17 y 75 para Detector de billetes y Mark All.
+
+Todos los recursos raster del catálogo se almacenan localmente como WebP. Los artículos genéricos o con marca/modelo insuficientes continúan usando `img/producto-sin-imagen.svg`; de ese modo no se atribuye una fotografía comercial incorrecta.

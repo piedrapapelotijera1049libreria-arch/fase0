@@ -56,16 +56,15 @@ Abrí `cuestionario-productos.csv` con Excel. Marcá `SI` en los productos que v
 
 ## Cambiar WhatsApp
 
-En `script.js`, editá:
+En `carrito.js`, editá:
 
 ```js
-const CONFIG = {
-  whatsappNumber: "5491152627005",
-  whatsappDisplay: "11-5262-7005"
+const CART_CONFIG = {
+  whatsappNumber: "5491152627005"
 };
 ```
 
-El número para `wa.me` debe ir con país y prefijo móvil. Para Argentina se usa `549` + característica + número.
+Después reemplazá el número visible y los enlaces `wa.me` de `index.html` y `condiciones-compra.html`. El número para `wa.me` debe ir con país y prefijo móvil. Para Argentina se usa `549` + característica + número.
 
 ## Cambiar colores
 
@@ -73,7 +72,9 @@ Los colores principales están al inicio de `styles.css`, en `:root`.
 
 ## Diseño actual
 
-La versión actual evita el estilo de landing genérica: el catálogo aparece rápido, los filtros quedan visibles y los productos se agrupan por categoría en carruseles horizontales con avance automático.
+La versión actual evita el estilo de landing genérica: el catálogo aparece en el primer recorrido, los filtros quedan visibles y los productos se agrupan por categoría en carruseles horizontales con avance automático.
+
+Cada tarjeta abre un detalle grande con imagen, descripción y variantes nombradas. La lista de consulta se administra en `carrito.html`, una página separada que comparte el estado guardado con `index.html` y funciona también al abrir los archivos directamente.
 
 El hero principal usa una foto real del frente del local:
 

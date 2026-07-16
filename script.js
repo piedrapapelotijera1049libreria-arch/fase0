@@ -5,11 +5,7 @@
 
 // EDITABLE: datos del negocio y número de WhatsApp en formato Argentina.
 const CONFIG = {
-  whatsappNumber: "5491152627005",
-  whatsappDisplay: "11-5262-7005",
-  businessName: "Piedra, Papel o Tijera Librería",
   maxQuantityPerProduct: 99,
-  orderCooldownMs: 60 * 1000,
 };
 
 const PRODUCTS_URL = "productos.json";
@@ -21,7 +17,6 @@ let catalogByCategoryIndex = new Map();
 
 const STORAGE_KEYS = {
   cart: "pptLibreriaCart",
-  lastOrderAt: "pptLibreriaLastOrderAt",
 };
 
 const FOCUSABLE_SELECTOR = [
@@ -49,16 +44,18 @@ const elements = {
   emptyState: document.querySelector("#emptyState"),
   cartButton: document.querySelector("#cartButton"),
   cartCount: document.querySelector("#cartCount"),
-  cartPanel: document.querySelector("#cartPanel"),
-  cartDrawer: document.querySelector(".cart-drawer"),
-  closeCart: document.querySelector("#closeCart"),
-  cartItems: document.querySelector("#cartItems"),
-  cartTotalItems: document.querySelector("#cartTotalItems"),
-  cartTotalPrice: document.querySelector("#cartTotalPrice"),
-  cartPriceNote: document.querySelector("#cartPriceNote"),
-  clearCartButton: document.querySelector("#clearCartButton"),
-  sendWhatsAppButton: document.querySelector("#sendWhatsAppButton"),
-  cartMessage: document.querySelector("#cartMessage"),
+  productDialog: document.querySelector("#productDialog"),
+  productDialogPanel: document.querySelector("#productDialogPanel"),
+  closeProductDialog: document.querySelector("#closeProductDialog"),
+  productDialogCategory: document.querySelector("#productDialogCategory"),
+  productDialogImage: document.querySelector("#productDialogImage"),
+  productDialogTitle: document.querySelector("#productDialogTitle"),
+  productDialogDescription: document.querySelector("#productDialogDescription"),
+  productDialogVariantGroup: document.querySelector("#productDialogVariantGroup"),
+  productDialogOptionLabel: document.querySelector("#productDialogOptionLabel"),
+  productDialogVariants: document.querySelector("#productDialogVariants"),
+  productDialogSelection: document.querySelector("#productDialogSelection"),
+  productDialogAdd: document.querySelector("#productDialogAdd"),
   toast: document.querySelector("#toast"),
   footerYear: document.querySelector("#footerYear"),
   categoryNav: document.querySelector(".category-nav"),
@@ -70,6 +67,7 @@ const elements = {
 const pageLockTargets = [
   document.querySelector(".site-header"),
   document.querySelector("main"),
+  document.querySelector(".site-footer"),
   document.querySelector(".floating-whatsapp"),
 ].filter(Boolean);
 
@@ -79,8 +77,8 @@ let revealObserver = null;
 let animationEngineReady = false;
 let smoothScroll = null;
 let searchRenderFrame = null;
-let cooldownTimer = null;
-let cartReturnFocus = null;
+let productDialogReturnFocus = null;
+let currentDialogVariant = null;
 let carouselTimers = [];
 
 init();
@@ -102,17 +100,15 @@ async function init() {
     catalogReady = true;
     renderCategoryFilters();
     renderProducts();
-    renderCart();
+    renderCartBadge();
 
     if (catalog.invalidCount > 0) {
       showToast(`Se omitieron ${catalog.invalidCount} producto${catalog.invalidCount === 1 ? "" : "s"} con datos incompletos.`);
     }
   } catch (error) {
     showCatalogError(error);
-    renderCart();
+    renderCartBadge();
   }
-
-  updateSendButtonState();
 }
 
 function scheduleAnimationEnhancements() {
@@ -314,33 +310,36 @@ function bindEvents() {
     });
   });
 
-  elements.cartButton.addEventListener("click", openCart);
-  elements.closeCart.addEventListener("click", closeCart);
-  elements.cartPanel.addEventListener("click", (event) => {
-    if (event.target.matches("[data-close-cart]")) {
-      closeCart();
+  elements.closeProductDialog.addEventListener("click", closeProductDialog);
+  elements.productDialog.addEventListener("click", (event) => {
+    if (event.target.matches("[data-close-product]")) closeProductDialog();
+  });
+  elements.productDialogAdd.addEventListener("click", () => {
+    if (!currentDialogVariant) return;
+    addToCart(currentDialogVariant.id);
+  });
+  elements.productDialogImage.addEventListener("error", () => {
+    if (!elements.productDialogImage.src.endsWith(FALLBACK_IMAGE)) {
+      elements.productDialogImage.src = FALLBACK_IMAGE;
     }
   });
 
-  elements.clearCartButton.addEventListener("click", () => {
-    state.cart = [];
-    saveCart();
-    renderCart();
-    showToast("Lista de consulta vacía.");
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEYS.cart) return;
+    state.cart = loadCart();
+    renderCartBadge();
   });
 
-  elements.sendWhatsAppButton.addEventListener("click", sendOrderToWhatsApp);
-
   document.addEventListener("keydown", (event) => {
-    if (!isCartOpen()) return;
+    if (!isProductDialogOpen()) return;
 
     if (event.key === "Escape") {
-      closeCart();
+      closeProductDialog();
       return;
     }
 
     if (event.key === "Tab") {
-      trapCartFocus(event);
+      trapProductDialogFocus(event);
     }
   });
 }
@@ -615,15 +614,19 @@ function toDomId(value) {
 }
 
 function createProductCard(product, index) {
-  let selectedVariant = getSelectedVariant(product);
+  const selectedVariant = getSelectedVariant(product);
   state.selectedVariants[product.id] = selectedVariant.id;
 
   const article = document.createElement("article");
   article.className = "product-card";
   article.setAttribute("role", "listitem");
+  article.dataset.productId = product.id;
   article.setAttribute("data-reveal", "");
   article.style.setProperty("--reveal-delay", `${Math.min(index * 45, 300)}ms`);
-  bindProductCardMotion(article);
+  article.addEventListener("click", (event) => {
+    if (event.target.closest("button, a")) return;
+    openProductDialog(product, article);
+  });
 
   const imageWrap = document.createElement("div");
   imageWrap.className = "product-card__image-wrap";
@@ -663,69 +666,29 @@ function createProductCard(product, index) {
   const footer = document.createElement("div");
   footer.className = "product-card__footer";
 
-  const addButton = document.createElement("button");
-  addButton.className = "product-card__action";
-  addButton.type = "button";
-  addButton.textContent = "Sumar a consulta";
-  addButton.setAttribute("aria-label", `Agregar ${getVariantDisplayName(product, selectedVariant)} a la lista de consulta`);
-  addButton.addEventListener("click", () => addToCart(selectedVariant.id));
+  const detailButton = document.createElement("button");
+  detailButton.className = "product-card__detail";
+  detailButton.type = "button";
+  detailButton.textContent = product.variantes.length > 1
+    ? `Ver ${product.variantes.length} opciones`
+    : "Ver detalle";
+  detailButton.setAttribute("aria-haspopup", "dialog");
+  detailButton.setAttribute("aria-label", `Ver detalle de ${product.nombre}`);
+  detailButton.addEventListener("click", () => openProductDialog(product, detailButton));
 
   imageWrap.append(image);
   meta.append(category, price);
-  footer.append(addButton);
   body.append(meta, title, description);
 
-  if (product.variantes.length > 1) {
-    const variantPicker = document.createElement("div");
-    variantPicker.className = "product-card__variants";
-
-    const variantHeading = document.createElement("div");
-    variantHeading.className = "product-card__variant-heading";
-
-    const variantLabel = document.createElement("span");
-    variantLabel.textContent = `${product.opcion}:`;
-
-    const variantName = document.createElement("strong");
-    variantName.textContent = selectedVariant.nombre;
-
-    const variantOptions = document.createElement("div");
-    variantOptions.className = "product-card__variant-options";
-    variantOptions.setAttribute("role", "group");
-    variantOptions.setAttribute("aria-label", `${product.opcion} de ${product.nombre}`);
-
-    const variantButtons = product.variantes.map((variant) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "variant-swatch";
-      button.title = variant.nombre;
-      button.setAttribute("aria-label", `${product.opcion} ${variant.nombre}`);
-      button.setAttribute("aria-pressed", String(variant.id === selectedVariant.id));
-      button.style.setProperty("--swatch-color", variant.color || "#d7d2c8");
-
-      button.addEventListener("click", () => {
-        selectedVariant = variant;
-        state.selectedVariants[product.id] = variant.id;
-        variantName.textContent = variant.nombre;
-        price.textContent = formatPrice(variant.precio);
-        image.src = variant.imagen;
-        image.alt = getVariantDisplayName(product, variant);
-        addButton.setAttribute("aria-label", `Agregar ${getVariantDisplayName(product, variant)} a la lista de consulta`);
-
-        variantButtons.forEach((variantButton, buttonIndex) => {
-          const isSelected = product.variantes[buttonIndex].id === variant.id;
-          variantButton.classList.toggle("is-active", isSelected);
-          variantButton.setAttribute("aria-pressed", String(isSelected));
-        });
-      });
-
-      button.classList.toggle("is-active", variant.id === selectedVariant.id);
-      return button;
-    });
-
-    variantHeading.append(variantLabel, variantName);
-    variantOptions.append(...variantButtons);
-    variantPicker.append(variantHeading, variantOptions);
-    body.append(variantPicker);
+  footer.append(detailButton);
+  if (product.variantes.length === 1) {
+    const addButton = document.createElement("button");
+    addButton.className = "product-card__action";
+    addButton.type = "button";
+    addButton.textContent = "Agregar";
+    addButton.setAttribute("aria-label", `Agregar ${product.nombre} a la lista de consulta`);
+    addButton.addEventListener("click", () => addToCart(selectedVariant.id));
+    footer.append(addButton);
   }
 
   body.append(footer);
@@ -741,6 +704,81 @@ function getSelectedVariant(product) {
 
 function getVariantDisplayName(product, variant) {
   return variant.nombre ? `${product.nombre} - ${variant.nombre}` : product.nombre;
+}
+
+function openProductDialog(product, trigger) {
+  const selectedVariant = getSelectedVariant(product);
+  const focusableTrigger = trigger instanceof HTMLElement && trigger.matches(FOCUSABLE_SELECTOR)
+    ? trigger
+    : trigger instanceof HTMLElement
+      ? trigger.querySelector(".product-card__detail")
+      : null;
+  productDialogReturnFocus = focusableTrigger || document.activeElement;
+
+  elements.productDialogCategory.textContent = product.categoria;
+  elements.productDialogTitle.textContent = product.nombre;
+  elements.productDialogDescription.textContent = product.descripcion;
+  elements.productDialogOptionLabel.textContent = product.opcion;
+  renderProductDialogVariants(product);
+  selectProductDialogVariant(product, selectedVariant);
+
+  elements.productDialogPanel.scrollTop = 0;
+  elements.productDialog.classList.add("is-open");
+  elements.productDialog.setAttribute("aria-hidden", "false");
+  document.body.classList.add("dialog-open");
+  lockPageBehindDialog(true);
+  window.requestAnimationFrame(() => elements.closeProductDialog.focus());
+}
+
+function renderProductDialogVariants(product) {
+  elements.productDialogVariants.textContent = "";
+  elements.productDialogVariantGroup.hidden = product.variantes.length <= 1;
+  if (product.variantes.length <= 1) return;
+
+  const fragment = document.createDocumentFragment();
+  product.variantes.forEach((variant) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "product-variant-option";
+    button.dataset.variantId = variant.id;
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", `${product.opcion}: ${variant.nombre}`);
+
+    if (variant.color) {
+      const swatch = document.createElement("span");
+      swatch.className = "product-variant-option__swatch";
+      swatch.style.setProperty("--swatch-color", variant.color);
+      swatch.setAttribute("aria-hidden", "true");
+      button.append(swatch);
+    }
+
+    const label = document.createElement("span");
+    label.textContent = variant.nombre || "Única";
+    button.append(label);
+    button.addEventListener("click", () => selectProductDialogVariant(product, variant));
+    fragment.append(button);
+  });
+  elements.productDialogVariants.append(fragment);
+}
+
+function selectProductDialogVariant(product, variant) {
+  currentDialogVariant = variant;
+  state.selectedVariants[product.id] = variant.id;
+  elements.productDialogImage.src = variant.imagen;
+  elements.productDialogImage.alt = getVariantDisplayName(product, variant);
+  elements.productDialogSelection.textContent = variant.nombre
+    ? `${product.opcion} seleccionada: ${variant.nombre}`
+    : "Presentación única";
+  elements.productDialogAdd.setAttribute(
+    "aria-label",
+    `Agregar ${getVariantDisplayName(product, variant)} a la lista de consulta`,
+  );
+
+  elements.productDialogVariants.querySelectorAll(".product-variant-option").forEach((button) => {
+    const isSelected = button.dataset.variantId === variant.id;
+    button.classList.toggle("is-active", isSelected);
+    button.setAttribute("aria-pressed", String(isSelected));
+  });
 }
 
 function buildProductSearchText(nombre, descripcion, categoria, variantes) {
@@ -897,46 +935,6 @@ function animateProductCards() {
   );
 }
 
-function bindProductCardMotion(card) {
-  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-  if (!window.matchMedia("(pointer: fine)").matches) return;
-
-  let motionFrame = null;
-  let pointerX = 0;
-  let pointerY = 0;
-
-  card.addEventListener("pointermove", (event) => {
-    pointerX = event.clientX;
-    pointerY = event.clientY;
-    if (motionFrame !== null) return;
-
-    motionFrame = window.requestAnimationFrame(() => {
-      motionFrame = null;
-      const rect = card.getBoundingClientRect();
-      const x = (pointerX - rect.left) / rect.width;
-      const y = (pointerY - rect.top) / rect.height;
-      const rotateY = (x - 0.5) * 7;
-      const rotateX = (0.5 - y) * 5;
-
-      card.style.setProperty("--tilt-x", `${rotateX.toFixed(2)}deg`);
-      card.style.setProperty("--tilt-y", `${rotateY.toFixed(2)}deg`);
-      card.style.setProperty("--glow-x", `${(x * 100).toFixed(1)}%`);
-      card.style.setProperty("--glow-y", `${(y * 100).toFixed(1)}%`);
-    });
-  });
-
-  card.addEventListener("pointerleave", () => {
-    if (motionFrame !== null) {
-      window.cancelAnimationFrame(motionFrame);
-      motionFrame = null;
-    }
-    card.style.setProperty("--tilt-x", "0deg");
-    card.style.setProperty("--tilt-y", "0deg");
-    card.style.setProperty("--glow-x", "50%");
-    card.style.setProperty("--glow-y", "0%");
-  });
-}
-
 function addToCart(productId) {
   const item = state.cart.find((cartItem) => cartItem.id === productId);
   const product = findProduct(productId);
@@ -954,196 +952,19 @@ function addToCart(productId) {
   }
 
   saveCart();
-  renderCart();
+  renderCartBadge();
   bumpCartButton();
   showToast(`${product.nombre} agregado a la consulta.`);
 }
 
-function renderCart() {
+function renderCartBadge() {
   const items = getCartItems();
   const totals = getCartTotals(items);
-  elements.cartItems.textContent = "";
-
-  if (items.length === 0) {
-    const empty = document.createElement("p");
-    empty.className = "cart-empty";
-    empty.textContent = "Todavía no agregaste productos a la consulta.";
-    elements.cartItems.append(empty);
-  } else {
-    const fragment = document.createDocumentFragment();
-    items.forEach((item) => fragment.append(createCartItem(item)));
-    elements.cartItems.append(fragment);
-  }
-
   elements.cartCount.textContent = String(totals.quantity);
-  elements.cartButton.setAttribute("aria-label", `Abrir lista de consulta (${totals.quantity} producto${totals.quantity === 1 ? "" : "s"})`);
-  elements.cartTotalItems.textContent = String(totals.quantity);
-  elements.cartTotalPrice.textContent = items.length > 0 ? "A consultar" : "—";
-  elements.clearCartButton.disabled = items.length === 0;
-  elements.cartPriceNote.textContent = items.length > 0
-    ? "Confirmamos precio y disponibilidad por WhatsApp."
-    : "";
-  updateSendButtonState();
-}
-
-function createCartItem(item) {
-  const wrapper = document.createElement("article");
-  wrapper.className = "cart-item";
-
-  const image = document.createElement("img");
-  image.src = item.product.imagen;
-  image.alt = item.product.nombre;
-  image.loading = "lazy";
-  image.decoding = "async";
-  image.width = 74;
-  image.height = 74;
-  image.addEventListener("error", () => {
-    if (!image.src.endsWith(FALLBACK_IMAGE)) image.src = FALLBACK_IMAGE;
-  });
-
-  const content = document.createElement("div");
-
-  const title = document.createElement("h3");
-  title.textContent = item.product.nombre;
-
-  const price = document.createElement("p");
-  price.textContent = "Consultar precio";
-
-  const controls = document.createElement("div");
-  controls.className = "cart-item__controls";
-
-  const quantity = document.createElement("div");
-  quantity.className = "quantity-control";
-  quantity.setAttribute("aria-label", `Cantidad de ${item.product.nombre}`);
-
-  const decrease = document.createElement("button");
-  decrease.type = "button";
-  decrease.textContent = "−";
-  decrease.setAttribute("aria-label", `Disminuir ${item.product.nombre}`);
-  decrease.addEventListener("click", () => updateQuantity(item.product.id, item.cantidad - 1));
-
-  const amount = document.createElement("span");
-  amount.textContent = String(item.cantidad);
-
-  const increase = document.createElement("button");
-  increase.type = "button";
-  increase.textContent = "+";
-  increase.setAttribute("aria-label", `Aumentar ${item.product.nombre}`);
-  increase.addEventListener("click", () => updateQuantity(item.product.id, item.cantidad + 1));
-
-  const remove = document.createElement("button");
-  remove.className = "remove-button";
-  remove.type = "button";
-  remove.textContent = "Quitar";
-  remove.addEventListener("click", () => removeFromCart(item.product.id));
-
-  quantity.append(decrease, amount, increase);
-  controls.append(quantity, remove);
-  content.append(title, price, controls);
-  wrapper.append(image, content);
-
-  return wrapper;
-}
-
-function updateQuantity(productId, nextQuantity) {
-  const item = state.cart.find((cartItem) => cartItem.id === productId);
-  if (!item) return;
-
-  if (nextQuantity <= 0) {
-    removeFromCart(productId);
-    return;
-  }
-
-  item.cantidad = Math.min(CONFIG.maxQuantityPerProduct, nextQuantity);
-  saveCart();
-  renderCart();
-  bumpCartButton();
-}
-
-function removeFromCart(productId) {
-  state.cart = state.cart.filter((item) => item.id !== productId);
-  saveCart();
-  renderCart();
-  bumpCartButton();
-}
-
-function sendOrderToWhatsApp() {
-  const items = getCartItems();
-  if (items.length === 0) {
-    setCartMessage("Agregá productos antes de enviar la consulta.");
-    return;
-  }
-
-  const remainingCooldown = getRemainingCooldown();
-  if (remainingCooldown > 0) {
-    setCartMessage("Esperá unos segundos antes de enviar otra consulta.");
-    return;
-  }
-
-  const message = buildWhatsAppMessage(items);
-  const url = `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-  safeStorageSet(STORAGE_KEYS.lastOrderAt, String(Date.now()));
-  updateSendButtonState();
-  const openedWindow = window.open(url, "_blank", "noopener,noreferrer");
-  if (openedWindow) {
-    setCartMessage("Consulta preparada en WhatsApp.");
-  } else {
-    setCartMessage("No pudimos abrir WhatsApp automaticamente. Permití ventanas emergentes o usá el botón flotante.");
-  }
-}
-
-function buildWhatsAppMessage(items) {
-  const totals = getCartTotals(items);
-  const lines = [
-    `Consulta desde la web de ${cleanText(CONFIG.businessName)}:`,
-    "",
-  ];
-
-  items.forEach((item) => {
-    lines.push(`- ${cleanText(item.product.nombre)} x${item.cantidad}`);
-  });
-
-  lines.push("");
-  lines.push(`Total de productos: ${totals.quantity}`);
-  lines.push("Precio: a consultar");
-
-  lines.push("");
-  lines.push("Hola, quiero consultar precio y disponibilidad de estos productos.");
-
-  return lines.join("\n");
-}
-
-function updateSendButtonState() {
-  window.clearTimeout(cooldownTimer);
-  cooldownTimer = null;
-  const remainingCooldown = getRemainingCooldown();
-  const cartIsEmpty = getCartItems().length === 0;
-
-  if (!catalogReady) {
-    elements.sendWhatsAppButton.disabled = true;
-    elements.sendWhatsAppButton.textContent = "Catálogo no disponible";
-    return;
-  }
-
-  if (remainingCooldown > 0) {
-    const seconds = Math.ceil(remainingCooldown / 1000);
-    elements.sendWhatsAppButton.disabled = true;
-    elements.sendWhatsAppButton.textContent = `Esperá ${seconds}s`;
-    cooldownTimer = window.setTimeout(updateSendButtonState, Math.min(1000, remainingCooldown + 20));
-    return;
-  }
-
-  elements.sendWhatsAppButton.disabled = cartIsEmpty;
-  elements.sendWhatsAppButton.textContent = "Enviar consulta";
-}
-
-function getRemainingCooldown() {
-  const lastOrderAt = Number(safeStorageGet(STORAGE_KEYS.lastOrderAt) || 0);
-  if (!Number.isFinite(lastOrderAt) || lastOrderAt <= 0) return 0;
-
-  const elapsed = Math.max(0, Date.now() - lastOrderAt);
-  return Math.max(0, CONFIG.orderCooldownMs - elapsed);
+  elements.cartButton.setAttribute(
+    "aria-label",
+    `Abrir lista de consulta (${totals.quantity} producto${totals.quantity === 1 ? "" : "s"})`,
+  );
 }
 
 function getCartItems() {
@@ -1244,13 +1065,6 @@ function normalizeText(value) {
     .trim();
 }
 
-function cleanText(value) {
-  return String(value)
-    .replace(/[\u0000-\u001f\u007f]/g, "")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
 function bumpCartButton() {
   elements.cartButton.classList.remove("is-bumped");
   window.clearTimeout(cartBumpTimer);
@@ -1261,70 +1075,32 @@ function bumpCartButton() {
   }, 420);
 }
 
-function openCart() {
-  cartReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : elements.cartButton;
-  elements.cartPanel.classList.add("is-open");
-  elements.cartPanel.setAttribute("aria-hidden", "false");
-  elements.cartButton.setAttribute("aria-expanded", "true");
-  lockPageBehindCart(true);
-  document.body.classList.add("cart-open");
+function closeProductDialog() {
+  if (!isProductDialogOpen()) return;
+  elements.productDialog.classList.remove("is-open");
+  elements.productDialog.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("dialog-open");
+  lockPageBehindDialog(false);
 
-  if (animationEngineReady && window.gsap) {
-    window.gsap.fromTo(
-      ".cart-drawer",
-      { xPercent: 100 },
-      { xPercent: 0, duration: 0.45, ease: "power3.out", clearProps: "transform" },
-    );
-    const cartItems = elements.cartItems.querySelectorAll(".cart-item");
-    if (cartItems.length > 0) {
-      window.gsap.fromTo(
-        cartItems,
-        { autoAlpha: 0, x: 18 },
-        { autoAlpha: 1, x: 0, duration: 0.32, ease: "power2.out", stagger: 0.04 },
-      );
-    }
-  }
-
-  window.requestAnimationFrame(() => elements.closeCart.focus());
-}
-
-function closeCart() {
-  if (animationEngineReady && window.gsap && elements.cartPanel.classList.contains("is-open")) {
-    window.gsap.to(".cart-drawer", {
-      xPercent: 100,
-      duration: 0.28,
-      ease: "power2.in",
-      onComplete: finishCloseCart,
-    });
-    return;
-  }
-
-  finishCloseCart();
-}
-
-function finishCloseCart() {
-  elements.cartPanel.classList.remove("is-open");
-  elements.cartPanel.setAttribute("aria-hidden", "true");
-  elements.cartButton.setAttribute("aria-expanded", "false");
-  lockPageBehindCart(false);
-  document.body.classList.remove("cart-open");
-  window.gsap?.set?.(".cart-drawer", { clearProps: "transform" });
-  const focusTarget = cartReturnFocus && document.contains(cartReturnFocus) ? cartReturnFocus : elements.cartButton;
-  cartReturnFocus = null;
+  const focusTarget = productDialogReturnFocus && document.contains(productDialogReturnFocus)
+    ? productDialogReturnFocus
+    : elements.cartButton;
+  productDialogReturnFocus = null;
+  currentDialogVariant = null;
   focusTarget.focus();
 }
 
-function isCartOpen() {
-  return elements.cartPanel.classList.contains("is-open");
+function isProductDialogOpen() {
+  return elements.productDialog.classList.contains("is-open");
 }
 
-function trapCartFocus(event) {
-  const focusableElements = Array.from(elements.cartDrawer.querySelectorAll(FOCUSABLE_SELECTOR))
+function trapProductDialogFocus(event) {
+  const focusableElements = Array.from(elements.productDialogPanel.querySelectorAll(FOCUSABLE_SELECTOR))
     .filter((element) => element.offsetParent !== null);
 
   if (focusableElements.length === 0) {
     event.preventDefault();
-    elements.closeCart.focus();
+    elements.closeProductDialog.focus();
     return;
   }
 
@@ -1343,7 +1119,7 @@ function trapCartFocus(event) {
   }
 }
 
-function lockPageBehindCart(shouldLock) {
+function lockPageBehindDialog(shouldLock) {
   pageLockTargets.forEach((target) => {
     if (shouldLock) {
       target.dataset.previousAriaHidden = target.getAttribute("aria-hidden") || "";
@@ -1360,10 +1136,6 @@ function lockPageBehindCart(shouldLock) {
     delete target.dataset.previousAriaHidden;
     target.inert = false;
   });
-}
-
-function setCartMessage(message) {
-  elements.cartMessage.textContent = message;
 }
 
 function showToast(message) {

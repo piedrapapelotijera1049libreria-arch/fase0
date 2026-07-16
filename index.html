@@ -101,10 +101,10 @@
             <small>Antes de comprar</small>
             <strong>Condiciones</strong>
           </a>
-          <button class="cart-button" id="cartButton" type="button" aria-controls="cartPanel" aria-expanded="false" aria-label="Abrir lista de consulta">
+          <a class="cart-button" id="cartButton" href="carrito.html" aria-label="Abrir lista de consulta">
             <span class="cart-button__label">Consulta</span>
             <span class="cart-button__count" id="cartCount">0</span>
-          </button>
+          </a>
         </div>
       </div>
 
@@ -134,12 +134,6 @@
           <p class="storefront-hero__copy">
             Elegí tus productos, seleccioná el color y envianos la consulta por WhatsApp.
           </p>
-          <div class="storefront-hero__actions">
-            <a class="button" href="#catalogo">Ver catálogo</a>
-            <a class="button button--secondary" href="https://wa.me/5491152627005" target="_blank" rel="noopener noreferrer">
-              Consultar por WhatsApp
-            </a>
-          </div>
         </div>
 
         <div class="storefront-hero__services" data-reveal aria-label="Servicios disponibles">
@@ -236,38 +230,48 @@
       <p class="site-footer__copy">© <span id="footerYear"></span> Piedra, Papel o Tijera Librería.</p>
     </footer>
 
-    <aside class="cart-panel" id="cartPanel" aria-hidden="true">
-      <button class="cart-panel__backdrop" type="button" data-close-cart aria-label="Cerrar lista de consulta"></button>
-      <div class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cartTitle" data-lenis-prevent>
-        <div class="cart-drawer__header">
+    <div class="product-dialog" id="productDialog" aria-hidden="true">
+      <button class="product-dialog__backdrop" type="button" data-close-product aria-label="Cerrar detalle del producto"></button>
+      <section
+        class="product-dialog__panel"
+        id="productDialogPanel"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="productDialogTitle"
+        data-lenis-prevent
+      >
+        <header class="product-dialog__header">
           <div>
-            <p class="eyebrow">Consulta</p>
-            <h2 id="cartTitle">Lista de consulta</h2>
+            <p class="eyebrow" id="productDialogCategory">Producto</p>
+            <p class="product-dialog__context">Detalle y variantes</p>
           </div>
-          <button class="icon-button" id="closeCart" type="button" aria-label="Cerrar lista de consulta">×</button>
+          <button class="icon-button" id="closeProductDialog" type="button" aria-label="Cerrar detalle">×</button>
+        </header>
+
+        <div class="product-dialog__content">
+          <div class="product-dialog__media">
+            <img id="productDialogImage" src="img/producto-sin-imagen.svg" alt="" width="800" height="800" />
+          </div>
+
+          <div class="product-dialog__details">
+            <h2 id="productDialogTitle">Producto</h2>
+            <p class="product-dialog__description" id="productDialogDescription"></p>
+            <p class="product-dialog__price">Consultar precio</p>
+
+            <fieldset class="product-dialog__variants" id="productDialogVariantGroup">
+              <legend id="productDialogOptionLabel">Variante</legend>
+              <div class="product-dialog__variant-list" id="productDialogVariants"></div>
+              <p class="product-dialog__selection" id="productDialogSelection" aria-live="polite"></p>
+            </fieldset>
+
+            <div class="product-dialog__actions">
+              <button class="button" id="productDialogAdd" type="button">Agregar a la consulta</button>
+              <a class="button button--secondary" id="productDialogCartLink" href="carrito.html">Ver consulta</a>
+            </div>
+          </div>
         </div>
-
-        <div class="cart-items" id="cartItems"></div>
-
-        <div class="cart-summary">
-          <div class="summary-row">
-            <span>Productos</span>
-            <strong id="cartTotalItems">0</strong>
-          </div>
-          <div class="summary-row">
-            <span>Importe</span>
-            <strong id="cartTotalPrice">A consultar</strong>
-          </div>
-          <p class="summary-note" id="cartPriceNote"></p>
-
-          <div class="cart-actions">
-            <button class="button button--muted" id="clearCartButton" type="button">Vaciar</button>
-            <button class="button" id="sendWhatsAppButton" type="button">Enviar consulta</button>
-          </div>
-          <p class="cart-message" id="cartMessage" role="status" aria-live="polite"></p>
-        </div>
-      </div>
-    </aside>
+      </section>
+    </div>
 
     <a
       class="floating-whatsapp"
