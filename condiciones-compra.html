@@ -36,30 +36,58 @@
   <body class="purchase-page">
     <a class="skip-link" href="#condiciones">Saltar a las condiciones</a>
 
-    <header class="purchase-header">
-      <a class="brand" href="index.html" aria-label="Volver al inicio">
-        <span class="brand-mark">
-          <img src="img/isotipo.jpg" alt="" width="256" height="256" />
-        </span>
-        <span class="brand-copy">
-          <strong>Piedra, Papel o Tijera</strong>
-          <small>Librería · José C. Paz</small>
-        </span>
-      </a>
-      <a class="purchase-back purchase-back--top" href="index.html">
-        Volver a la página principal
-      </a>
+    <header class="cart-page-header purchase-page-header">
+      <div class="utility-bar">
+        <div class="utility-bar__inner">
+          <a data-whatsapp-link target="_blank" rel="noopener noreferrer">
+            Atención por WhatsApp · <span data-whatsapp-number></span>
+          </a>
+          <a
+            href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Polonia 1049 · José C. Paz
+          </a>
+        </div>
+      </div>
+
+      <div class="cart-page-header__inner purchase-header">
+        <a class="brand" href="index.html" aria-label="Ir a la página principal">
+          <span class="brand-mark">
+            <img src="img/isotipo.jpg" alt="" width="256" height="256" />
+          </span>
+          <span class="brand-copy">
+            <strong>Piedra, Papel o Tijera</strong>
+            <small>Librería · José C. Paz</small>
+          </span>
+        </a>
+        <nav class="cart-page-header__actions" aria-label="Navegación de condiciones">
+          <a class="cart-page-header__back" href="index.html#catalogo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="m14.5 6-6 6 6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Volver al catálogo
+          </a>
+          <a href="carrito.html">Mi pedido</a>
+        </nav>
+      </div>
     </header>
 
     <main class="purchase-main" id="condiciones" tabindex="-1">
       <section class="purchase-hero" aria-labelledby="purchase-title">
-        <div class="purchase-badge" aria-hidden="true">P</div>
         <div>
-          <p class="eyebrow">Ventas por WhatsApp</p>
           <h1 id="purchase-title">Proceso de compra</h1>
           <p>
-            Así funciona tu compra, de forma clara y segura. Seguimos estos pasos para confirmar
-            el pago y preparar tu pedido correctamente.
+            Así funciona tu compra por WhatsApp. Seguimos estos pasos para confirmar el pago y
+            preparar tu pedido correctamente.
           </p>
         </div>
       </section>
@@ -110,43 +138,66 @@
         </li>
       </ol>
 
-      <section
-        class="purchase-notice purchase-notice--important"
-        aria-labelledby="important-title"
-      >
-        <span aria-hidden="true">!</span>
-        <div>
-          <h2 id="important-title">Importante</h2>
-          <p>
-            Los productos se reservan y las impresiones se realizan una vez confirmado el pago.
-            Antes de la transferencia no podemos garantizar stock ni comenzar los trabajos de
-            impresión.
-          </p>
-        </div>
-      </section>
+      <div class="purchase-notices">
+        <section
+          class="purchase-notice purchase-notice--important"
+          aria-labelledby="important-title"
+        >
+          <span aria-hidden="true">!</span>
+          <div>
+            <h2 id="important-title">Importante</h2>
+            <p>
+              Los productos se reservan y las impresiones se realizan una vez confirmado el pago.
+              Antes de la transferencia no podemos garantizar stock ni comenzar los trabajos de
+              impresión.
+            </p>
+          </div>
+        </section>
 
-      <section class="purchase-notice purchase-notice--ready" aria-labelledby="ready-title">
-        <span aria-hidden="true">OK</span>
-        <div>
-          <h2 id="ready-title">Cuando esté listo, te avisamos</h2>
-          <p>
-            Te escribimos por WhatsApp para confirmar que tu pedido está preparado y coordinar
-            el retiro. Para agilizar la atención, envianos el comprobante junto con el nombre de
-            la transferencia.
-          </p>
-        </div>
-      </section>
+        <section class="purchase-notice purchase-notice--ready" aria-labelledby="ready-title">
+          <span aria-hidden="true">OK</span>
+          <div>
+            <h2 id="ready-title">Cuando esté listo, te avisamos</h2>
+            <p>
+              Te escribimos por WhatsApp para confirmar que tu pedido está preparado y coordinar
+              el retiro. Para agilizar la atención, envianos el comprobante junto con el nombre de
+              la transferencia.
+            </p>
+          </div>
+        </section>
+      </div>
 
       <div class="purchase-actions" aria-label="Acciones">
-        <a class="purchase-back" href="index.html">Volver a la página principal</a>
+        <a class="purchase-back" href="index.html#catalogo">Volver al catálogo</a>
         <a class="button" data-whatsapp-link target="_blank" rel="noopener noreferrer">
           Consultar por WhatsApp
         </a>
       </div>
     </main>
 
-    <footer class="purchase-footer">
-      Gracias por elegirnos. Tu pedido queda en preparación una vez acreditado el pago.
+    <footer class="site-footer secondary-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <strong>Piedra, Papel o Tijera</strong>
+          <span>Polonia 1049 · José C. Paz</span>
+          <span>Lunes a viernes 07:00 a 13:30 y 16:00 a 20:00</span>
+        </div>
+        <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+          <a href="index.html#catalogo">Catálogo</a>
+          <a href="carrito.html">Mi pedido</a>
+          <a data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a
+            href="https://instagram.com/piedrapapelotijeralibreria_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+        </nav>
+      </div>
+      <p class="site-footer__copy">
+        Sábados 09:00 a 13:00 y 16:00 a 20:00 · Domingos y feriados 09:00 a 13:00
+      </p>
     </footer>
 
     <script defer src="js/store-config.js"></script>

@@ -57,15 +57,37 @@
     <header class="site-header" data-header>
       <div class="utility-bar">
         <div class="utility-bar__inner">
-          <a data-whatsapp-link target="_blank" rel="noopener noreferrer">
-            WhatsApp <span data-whatsapp-number></span>
+          <p class="utility-bar__message">
+            <a data-whatsapp-link target="_blank" rel="noopener noreferrer">Pedidos por WhatsApp</a>
+            <span aria-hidden="true">·</span>
+            <span>Retiro en el local</span>
+          </p>
+          <a
+            class="utility-bar__location"
+            href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Polonia 1049 · José C. Paz
           </a>
-          <span>Polonia 1049 · José C. Paz</span>
         </div>
       </div>
 
       <div class="commerce-header">
-        <a class="brand" href="#inicio" aria-label="Ir al inicio">
+        <button
+          class="mobile-menu-toggle"
+          id="mobileMenuToggle"
+          type="button"
+          aria-controls="primaryNavigation"
+          aria-expanded="false"
+          aria-label="Abrir menú"
+        >
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+
+        <a class="brand" href="#inicio" aria-label="Piedra, Papel o Tijera, ir al inicio">
           <span class="brand-mark">
             <img src="img/isotipo.jpg" alt="" width="256" height="256" />
           </span>
@@ -75,14 +97,22 @@
           </span>
         </a>
 
-        <div class="header-search">
-          <label class="visually-hidden" for="searchInput">Buscar productos</label>
-          <span class="header-search__icon" aria-hidden="true"></span>
+        <div class="header-search" role="search">
+          <label class="visually-hidden" for="searchInput">Buscar productos en el catálogo</label>
+          <svg
+            class="header-search__icon"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <circle cx="11" cy="11" r="6.75"></circle>
+            <path d="m16 16 4.25 4.25"></path>
+          </svg>
           <input
             id="searchInput"
             type="search"
             autocomplete="off"
-            placeholder="Buscar productos"
+            placeholder="¿Qué estás buscando?"
           />
           <button
             class="header-search__clear"
@@ -96,7 +126,23 @@
         </div>
 
         <div class="header-actions">
-          <a class="header-conditions" href="condiciones-compra.html">Condiciones</a>
+          <a
+            class="header-help"
+            data-whatsapp-link
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Escribir por WhatsApp para recibir ayuda"
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M20.4 11.7a8.4 8.4 0 0 1-12.5 7.35L3.6 20.1l1.1-4.17A8.4 8.4 0 1 1 20.4 11.7Z"></path>
+              <path d="M8.4 8.55c.45 2.67 2.28 4.5 4.95 4.95"></path>
+            </svg>
+            <span>
+              <small>¿Necesitás ayuda?</small>
+              <strong>Escribinos</strong>
+            </span>
+          </a>
+
           <a class="cart-button" id="cartButton" href="carrito.html" aria-label="Abrir mi pedido">
             <svg class="cart-button__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
               <path
@@ -114,32 +160,44 @@
         </div>
       </div>
 
-      <nav class="category-nav" aria-label="Navegación principal">
+      <nav class="category-nav" id="primaryNavigation" aria-label="Navegación principal">
         <div class="category-nav__inner">
-          <a class="category-nav__lead" href="#catalogo">Catálogo</a>
-          <a href="#servicios">Servicios</a>
+          <a class="category-nav__lead" href="#catalogo">Todos los productos</a>
+          <a href="#categorias">Categorías</a>
           <a href="#como-comprar">Cómo comprar</a>
+          <a href="#servicios">Servicios</a>
           <a href="#contacto">Contacto</a>
+          <a href="condiciones-compra.html">Condiciones de compra</a>
         </div>
       </nav>
+      <button
+        class="mobile-nav-backdrop"
+        type="button"
+        data-mobile-nav-close
+        aria-label="Cerrar menú"
+        tabindex="-1"
+      ></button>
     </header>
 
     <main id="inicio">
       <section class="storefront-hero" aria-labelledby="hero-title">
         <div class="storefront-hero__content" data-reveal>
           <p class="eyebrow">Librería en José C. Paz</p>
-          <h1 id="hero-title">Piedra, Papel o Tijera</h1>
+          <h1 id="hero-title">Todo para estudiar, crear y resolver</h1>
           <p class="storefront-hero__lead">
-            Útiles, escritura y servicios de librería para resolver todo en un mismo lugar.
+            Útiles escolares, escritura, papelería y servicios de librería, cerca de casa.
           </p>
           <p class="storefront-hero__copy">
-            Elegí tus productos y enviá la solicitud por WhatsApp. Confirmamos disponibilidad y
-            total antes del pago.
+            Explorá el catálogo, armá tu pedido y envialo por WhatsApp. Te confirmamos
+            disponibilidad y total antes de cualquier pago.
           </p>
           <div class="storefront-hero__actions">
-            <a class="button" href="#catalogo">Explorar catálogo</a>
-            <a class="button button--secondary" href="#como-comprar">Cómo comprar</a>
+            <a class="button" href="#catalogo">Ver catálogo</a>
+            <a class="button button--secondary" data-whatsapp-link target="_blank" rel="noopener noreferrer">
+              Consultar por WhatsApp
+            </a>
           </div>
+          <p class="storefront-hero__location">Polonia 1049 · José C. Paz</p>
         </div>
 
         <div class="storefront-hero__media" data-reveal>
@@ -161,17 +219,188 @@
               decoding="async"
             />
           </picture>
+          <div class="storefront-hero__media-label" aria-hidden="true">
+            <strong>Polonia 1049</strong>
+            <span>José C. Paz</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="order-process" id="como-comprar" aria-labelledby="process-title">
+        <div class="order-process__heading" data-reveal>
+          <p class="eyebrow">Comprar es simple</p>
+          <h2 id="process-title">Armá tu pedido en cuatro pasos</h2>
+        </div>
+        <ol class="order-process__steps" data-reveal>
+          <li>
+            <span class="order-process__number" aria-hidden="true">1</span>
+            <div>
+              <strong>Armá tu pedido</strong>
+              <p>Elegí productos, variantes y cantidades desde el catálogo.</p>
+            </div>
+          </li>
+          <li>
+            <span class="order-process__number" aria-hidden="true">2</span>
+            <div>
+              <strong>Envialo por WhatsApp</strong>
+              <p>La web prepara el detalle para que nos lo mandes directamente.</p>
+            </div>
+          </li>
+          <li>
+            <span class="order-process__number" aria-hidden="true">3</span>
+            <div>
+              <strong>Recibí la confirmación</strong>
+              <p>Te informamos disponibilidad y total antes de coordinar el retiro.</p>
+            </div>
+          </li>
+          <li>
+            <span class="order-process__number" aria-hidden="true">4</span>
+            <div>
+              <strong>Sin pagos en esta web</strong>
+              <p>El pedido no se cobra online ni queda confirmado automáticamente.</p>
+            </div>
+          </li>
+        </ol>
+        <a class="order-process__link" href="condiciones-compra.html">Ver condiciones de compra</a>
+      </section>
+
+      <section class="category-showcase" id="categorias" aria-labelledby="categorias-title">
+        <div class="section-heading section-heading--split" data-reveal>
+          <div>
+            <p class="eyebrow">Explorá por categoría</p>
+            <h2 id="categorias-title">Lo que buscás, más fácil</h2>
+          </div>
+          <a href="#catalogo">Ver todo el catálogo</a>
+        </div>
+
+        <div class="category-showcase__grid" data-reveal>
+          <a class="category-tile category-tile--sky" href="#catalogo" data-category-shortcut="Lapiceras">
+            <span class="category-tile__copy">
+              <small>Escritura</small>
+              <strong>Lapiceras</strong>
+            </span>
+            <img
+              src="img/productos/bic-cristal-fashion.webp"
+              alt="Lapiceras de colores"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <a
+            class="category-tile category-tile--yellow"
+            href="#catalogo"
+            data-category-shortcut="Lápices de colores"
+          >
+            <span class="category-tile__copy">
+              <small>Para dibujar</small>
+              <strong>Lápices de colores</strong>
+            </span>
+            <img
+              src="img/productos/filgo-pinto-colores-24.webp"
+              alt="Caja de lápices de colores"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <a class="category-tile category-tile--coral" href="#catalogo" data-category-shortcut="Papeles">
+            <span class="category-tile__copy">
+              <small>Color y formato</small>
+              <strong>Papeles</strong>
+            </span>
+            <img
+              src="img/productos/cartulina.webp"
+              alt="Cartulinas de colores"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <a
+            class="category-tile category-tile--lilac"
+            href="#catalogo"
+            data-category-shortcut="Manualidades"
+          >
+            <span class="category-tile__copy">
+              <small>Manos a la obra</small>
+              <strong>Manualidades</strong>
+            </span>
+            <img
+              src="img/productos/goma-eva-glitter.webp"
+              alt="Goma EVA con brillo para manualidades"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <a
+            class="category-tile category-tile--mint"
+            href="#catalogo"
+            data-category-shortcut="Accesorios escolares"
+          >
+            <span class="category-tile__copy">
+              <small>Para la cartuchera</small>
+              <strong>Accesorios escolares</strong>
+            </span>
+            <img
+              src="img/productos/filgo-tijera-pinto.webp"
+              alt="Tijera escolar"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
+
+          <a
+            class="category-tile category-tile--peach"
+            href="#catalogo"
+            data-category-shortcut="Pizarras"
+          >
+            <span class="category-tile__copy">
+              <small>Para practicar</small>
+              <strong>Pizarras</strong>
+            </span>
+            <img
+              src="img/productos/olami-pizarra-21x28.webp"
+              alt="Pizarra escolar blanca"
+              width="600"
+              height="600"
+              loading="lazy"
+              decoding="async"
+            />
+          </a>
         </div>
       </section>
 
       <section class="catalog" id="catalogo" aria-labelledby="catalogo-title" tabindex="-1">
         <div class="catalog__head" data-reveal>
           <div>
-            <p class="eyebrow">Catálogo</p>
+            <p class="eyebrow">Catálogo completo</p>
             <h2 id="catalogo-title">Encontrá lo que necesitás</h2>
           </div>
-          <p>Armá tu pedido y te confirmamos precio y disponibilidad por WhatsApp.</p>
+          <p>
+            Filtrá por categoría o usá el buscador. Podés revisar cada variante antes de sumarla a
+            tu pedido.
+          </p>
         </div>
+
+        <aside class="catalog-note" data-reveal aria-label="Información sobre el catálogo">
+          <strong>Importante</strong>
+          <p>
+            Esta web funciona como catálogo de consulta. El precio, la disponibilidad y el total se
+            confirman personalmente por WhatsApp.
+          </p>
+        </aside>
 
         <div class="catalog-toolbar" data-reveal>
           <div
@@ -185,36 +414,6 @@
           </p>
         </div>
 
-        <section class="order-process" id="como-comprar" aria-labelledby="process-title">
-          <div class="order-process__heading">
-            <h3 id="process-title">Tu pedido, paso a paso</h3>
-          </div>
-          <ol class="order-process__steps">
-            <li>
-              <span aria-hidden="true">1</span>
-              <div>
-                <strong>Prepará tu pedido</strong>
-                <p>Elegí productos y cantidades.</p>
-              </div>
-            </li>
-            <li>
-              <span aria-hidden="true">2</span>
-              <div>
-                <strong>Envialo por WhatsApp</strong>
-                <p>Mandanos la solicitud desde la web.</p>
-              </div>
-            </li>
-            <li>
-              <span aria-hidden="true">3</span>
-              <div>
-                <strong>Esperá la confirmación</strong>
-                <p>Confirmamos disponibilidad y total.</p>
-              </div>
-            </li>
-          </ol>
-          <a class="order-process__link" href="condiciones-compra.html">Ver condiciones</a>
-        </section>
-
         <div class="catalog-results">
           <div class="product-grid" id="productGrid"></div>
           <p class="empty-state" id="emptyState" hidden>
@@ -224,96 +423,197 @@
       </section>
 
       <section class="services" id="servicios" aria-labelledby="servicios-title">
-        <div class="section-heading" data-reveal>
-          <p class="eyebrow">Mostrador</p>
-          <h2 id="servicios-title">Servicios de todos los días</h2>
+        <div class="section-heading section-heading--split" data-reveal>
+          <div>
+            <p class="eyebrow">Servicios en el local</p>
+            <h2 id="servicios-title">Resolvé tus trabajos de todos los días</h2>
+          </div>
+          <p>Escribinos para consultar archivos, formatos y disponibilidad.</p>
         </div>
 
-        <ul class="service-ledger" data-reveal>
-          <li class="service-row">
-            <strong>Fotocopias</strong>
-            <p>Blanco y negro, apuntes, documentos y material escolar.</p>
-          </li>
-          <li class="service-row">
-            <strong>Impresiones</strong>
-            <p>Trabajos prácticos, formularios y archivos en color o blanco y negro.</p>
-          </li>
-          <li class="service-row">
-            <strong>Plastificados</strong>
-            <p>Láminas, credenciales, carteles y material para conservar.</p>
-          </li>
-          <li class="service-row">
-            <strong>Anillados</strong>
-            <p>Apuntes, informes, cuadernillos y presentaciones prolijas.</p>
-          </li>
-          <li class="service-row">
-            <strong>Útiles escolares</strong>
-            <p>Cuadernos, hojas, lápices, cartulinas, marcadores y artículos de librería.</p>
-          </li>
-        </ul>
+        <div class="service-grid" data-reveal>
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <rect x="13" y="5" width="22" height="30" rx="2"></rect>
+                <path d="M18 13h12M18 19h12M18 25h8"></path>
+                <path d="M9 13H6a2 2 0 0 0-2 2v26h22v-4"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Fotocopias</h3>
+              <p>Apuntes, documentos y material escolar en blanco y negro.</p>
+            </div>
+            <a data-whatsapp-link target="_blank" rel="noopener noreferrer">Consultar</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <path d="M14 17V5h20v12"></path>
+                <rect x="6" y="17" width="36" height="20" rx="3"></rect>
+                <path d="M14 29h20v14H14zM34 23h2"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Impresiones</h3>
+              <p>Trabajos, formularios y archivos en color o blanco y negro.</p>
+            </div>
+            <a data-whatsapp-link target="_blank" rel="noopener noreferrer">Consultar</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <path d="M8 11h32v26H8z"></path>
+                <path d="M13 16h22v16H13zM4 7l5 5M44 7l-5 5M4 41l5-5M44 41l-5-5"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Plastificados</h3>
+              <p>Láminas, credenciales, carteles y material para conservar.</p>
+            </div>
+            <a data-whatsapp-link target="_blank" rel="noopener noreferrer">Consultar</a>
+          </article>
+
+          <article class="service-card">
+            <span class="service-card__icon" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <path d="M13 7h27v36H13z"></path>
+                <path d="M13 13H8M13 21H8M13 29H8M13 37H8M19 14h15M19 21h15M19 28h12"></path>
+              </svg>
+            </span>
+            <div>
+              <h3>Anillados</h3>
+              <p>Apuntes, informes, cuadernillos y presentaciones prolijas.</p>
+            </div>
+            <a data-whatsapp-link target="_blank" rel="noopener noreferrer">Consultar</a>
+          </article>
+        </div>
       </section>
 
       <section class="contact" id="contacto" aria-labelledby="contacto-title">
-        <div data-reveal>
-          <p class="eyebrow">Contacto</p>
+        <div class="section-heading" data-reveal>
+          <p class="eyebrow">Estamos cerca</p>
           <h2 id="contacto-title">Pasá por el local o escribinos</h2>
-          <p class="contact__intro">
-            Consultanos antes de acercarte: confirmamos disponibilidad y total por WhatsApp.
-          </p>
         </div>
 
-        <div class="contact-grid" data-reveal>
-          <p>
-            <strong>WhatsApp</strong>
-            <a
-              data-whatsapp-link
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Escribir por WhatsApp"
-            >
-              <span data-whatsapp-number>WhatsApp</span>
-            </a>
-          </p>
-          <p>
-            <strong>Instagram</strong>
-            <a
-              href="https://instagram.com/piedrapapelotijeralibreria_"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              @piedrapapelotijeralibreria_
-            </a>
-          </p>
-          <p>
-            <strong>Dirección</strong>
-            <a
-              href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Polonia 1049, B1660 José C. Paz, Provincia de Buenos Aires
-            </a>
-          </p>
-          <p>
-            <strong>Horarios</strong>
-            <span>Lunes a viernes 07:00 a 13:30 y de 16:00 a 20:00.</span>
-            <span>Sábados 09:00 a 13:00 y de 16:00 a 20:00.</span>
-            <span>Domingos/Feriados 9:00 a 13:00.</span>
-          </p>
+        <div class="contact-card" data-reveal>
+          <div class="contact-card__media">
+            <picture>
+              <source
+                media="(max-width: 767px)"
+                srcset="img/local-exterior-mobile.webp"
+                type="image/webp"
+                width="800"
+                height="468"
+              />
+              <source srcset="img/local-exterior.webp" type="image/webp" width="1400" height="820" />
+              <img
+                src="img/local-exterior.jpg"
+                alt="Frente del local Piedra, Papel o Tijera"
+                width="1400"
+                height="820"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          </div>
+
+          <div class="contact-card__content">
+            <p class="contact-card__intro">
+              Consultanos antes de acercarte: confirmamos disponibilidad y total por WhatsApp.
+            </p>
+            <dl class="contact-details">
+              <div>
+                <dt>Dirección</dt>
+                <dd>
+                  <a
+                    href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Polonia 1049, B1660 José C. Paz, Provincia de Buenos Aires
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>WhatsApp</dt>
+                <dd>
+                  <a data-whatsapp-link target="_blank" rel="noopener noreferrer">
+                    <span data-whatsapp-number>WhatsApp</span>
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>Instagram</dt>
+                <dd>
+                  <a
+                    href="https://instagram.com/piedrapapelotijeralibreria_"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    @piedrapapelotijeralibreria_
+                  </a>
+                </dd>
+              </div>
+              <div>
+                <dt>Horarios</dt>
+                <dd>
+                  <span>Lunes a viernes: 07:00 a 13:30 y 16:00 a 20:00.</span>
+                  <span>Sábados: 09:00 a 13:00 y 16:00 a 20:00.</span>
+                  <span>Domingos y feriados: 09:00 a 13:00.</span>
+                </dd>
+              </div>
+            </dl>
+            <div class="contact-card__actions">
+              <a class="button" data-whatsapp-link target="_blank" rel="noopener noreferrer">
+                Escribir por WhatsApp
+              </a>
+              <a
+                class="button button--secondary"
+                href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Cómo llegar
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
       <div class="site-footer__inner">
-        <div class="site-footer__brand">
-          <strong>Piedra, Papel o Tijera</strong>
-          <span>Polonia 1049 · José C. Paz</span>
-          <span>Lunes a viernes 07:00 a 13:30 y 16:00 a 20:00</span>
+        <div class="site-footer__column site-footer__brand">
+          <a class="site-footer__logo" href="#inicio">
+            <img src="img/isotipo.jpg" alt="" width="256" height="256" loading="lazy" />
+            <span>
+              <strong>Piedra, Papel o Tijera</strong>
+              <small>Librería · José C. Paz</small>
+            </span>
+          </a>
+          <p>Útiles, papelería y servicios de librería en tu barrio.</p>
+          <a
+            href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Polonia 1049 · José C. Paz
+          </a>
         </div>
-        <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+
+        <nav class="site-footer__column site-footer__links" aria-label="Explorar">
+          <strong>Explorar</strong>
           <a href="#catalogo">Catálogo</a>
-          <a href="condiciones-compra.html">Condiciones de compra</a>
+          <a href="#categorias">Categorías</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#como-comprar">Cómo comprar</a>
+        </nav>
+
+        <div class="site-footer__column site-footer__links">
+          <strong>Contacto</strong>
           <a data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
           <a
             href="https://instagram.com/piedrapapelotijeralibreria_"
@@ -322,11 +622,20 @@
           >
             Instagram
           </a>
-        </nav>
+          <a href="condiciones-compra.html">Condiciones de compra</a>
+        </div>
+
+        <div class="site-footer__column site-footer__hours">
+          <strong>Horarios</strong>
+          <p>Lunes a viernes<br />07:00 a 13:30 · 16:00 a 20:00</p>
+          <p>Sábados<br />09:00 a 13:00 · 16:00 a 20:00</p>
+          <p>Domingos y feriados<br />09:00 a 13:00</p>
+        </div>
       </div>
-      <p class="site-footer__copy">
-        © <span id="footerYear"></span> Piedra, Papel o Tijera Librería.
-      </p>
+      <div class="site-footer__bottom">
+        <p>© <span id="footerYear"></span> Piedra, Papel o Tijera Librería.</p>
+        <p>Catálogo de consulta · Sin pagos online</p>
+      </div>
     </footer>
 
     <div class="product-dialog" id="productDialog" aria-hidden="true">

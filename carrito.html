@@ -25,8 +25,23 @@
     </noscript>
 
     <header class="cart-page-header">
+      <div class="utility-bar">
+        <div class="utility-bar__inner">
+          <a data-whatsapp-link target="_blank" rel="noopener noreferrer">
+            Atención por WhatsApp · <span data-whatsapp-number></span>
+          </a>
+          <a
+            href="https://maps.google.com/?q=Polonia+1049,+Jos%C3%A9+C.+Paz,+Buenos+Aires"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Polonia 1049 · José C. Paz
+          </a>
+        </div>
+      </div>
+
       <div class="cart-page-header__inner">
-        <a class="brand" href="index.html" aria-label="Volver al catálogo">
+        <a class="brand" href="index.html" aria-label="Ir a la página principal">
           <span class="brand-mark">
             <img src="img/isotipo.jpg" alt="" width="256" height="256" />
           </span>
@@ -36,8 +51,20 @@
           </span>
         </a>
         <nav class="cart-page-header__actions" aria-label="Navegación del pedido">
+          <a class="cart-page-header__back" href="index.html#catalogo">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path
+                d="m14.5 6-6 6 6 6"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+            Volver al catálogo
+          </a>
           <a href="condiciones-compra.html">Condiciones</a>
-          <a class="button button--secondary" href="index.html#catalogo">Seguir comprando</a>
         </nav>
       </div>
     </header>
@@ -45,12 +72,11 @@
     <main class="cart-page-main" id="cartContent" tabindex="-1">
       <header class="cart-page-title">
         <div>
-          <p class="eyebrow">Mi pedido</p>
           <h1>Revisá tu pedido</h1>
+          <p>Corregí las cantidades y agregá tus datos antes de enviarlo.</p>
         </div>
         <p>
-          Revisá las cantidades y, si querés, agregá tus datos. La librería confirma
-          disponibilidad y total por WhatsApp antes de la transferencia.
+          La librería confirma disponibilidad y total por WhatsApp antes de la transferencia.
         </p>
       </header>
 
@@ -64,8 +90,7 @@
         </section>
 
         <aside class="cart-page-summary" aria-labelledby="cartSummaryTitle">
-          <p class="eyebrow">Resumen</p>
-          <h2 id="cartSummaryTitle">Tu solicitud</h2>
+          <h2 id="cartSummaryTitle">Resumen del pedido</h2>
           <dl>
             <div>
               <dt>Unidades</dt>
@@ -128,11 +153,52 @@
           ></p>
         </aside>
       </div>
+
+      <section class="cart-trust-strip cart-page-process" aria-labelledby="cartProcessTitle">
+        <h2 id="cartProcessTitle">Cómo continúa tu pedido</h2>
+        <ol>
+          <li>
+            <h3>Revisá</h3>
+            <p>Comprobá productos, variantes y cantidades.</p>
+          </li>
+          <li>
+            <h3>Envialo</h3>
+            <p>Mandá la solicitud preparada por WhatsApp.</p>
+          </li>
+          <li>
+            <h3>Esperá la confirmación</h3>
+            <p>La librería te responde con disponibilidad y total.</p>
+          </li>
+        </ol>
+        <a class="cart-trust-strip__link" href="condiciones-compra.html">
+          Ver condiciones de compra
+        </a>
+      </section>
     </main>
 
-    <footer class="cart-page-footer">
-      <span>Polonia 1049 · José C. Paz</span>
-      <a href="index.html#contacto">Contacto y horarios</a>
+    <footer class="site-footer secondary-footer">
+      <div class="site-footer__inner">
+        <div class="site-footer__brand">
+          <strong>Piedra, Papel o Tijera</strong>
+          <span>Polonia 1049 · José C. Paz</span>
+          <span>Lunes a viernes 07:00 a 13:30 y 16:00 a 20:00</span>
+        </div>
+        <nav class="site-footer__links" aria-label="Enlaces del pie de página">
+          <a href="index.html#catalogo">Catálogo</a>
+          <a href="condiciones-compra.html">Condiciones de compra</a>
+          <a data-whatsapp-link target="_blank" rel="noopener noreferrer">WhatsApp</a>
+          <a
+            href="https://instagram.com/piedrapapelotijeralibreria_"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Instagram
+          </a>
+        </nav>
+      </div>
+      <p class="site-footer__copy">
+        Sábados 09:00 a 13:00 y 16:00 a 20:00 · Domingos y feriados 09:00 a 13:00
+      </p>
     </footer>
 
     <dialog
@@ -142,7 +208,6 @@
       aria-describedby="clearCartDialogDescription"
     >
       <div class="clear-cart-dialog__content">
-        <p class="eyebrow">Confirmar acción</p>
         <h2 id="clearCartDialogTitle">¿Vaciar todo el pedido?</h2>
         <p id="clearCartDialogDescription">
           Se quitarán todos los productos de tu lista.
