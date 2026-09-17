@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" role="img" aria-labelledby="title description">
-  <title id="title">Producto sin imagen</title>
-  <desc id="description">Ilustración de una bolsa de librería</desc>
-  <rect width="600" height="450" fill="#241b16"/>
-  <path d="M210 146h180l24 220H186l24-220Z" fill="#ffd34e" stroke="#fff7eb" stroke-width="10"/>
-  <path d="M252 164v-24c0-38 21-60 48-60s48 22 48 60v24" fill="none" stroke="#fff7eb" stroke-width="12" stroke-linecap="round"/>
-  <circle cx="300" cy="252" r="54" fill="#ff5b4f"/>
-  <path d="m274 254 18 18 36-42" fill="none" stroke="#fff7eb" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
-</svg>
